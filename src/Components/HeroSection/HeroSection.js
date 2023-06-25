@@ -24,7 +24,7 @@ export const HeroSection = () => {
                             </div>
                         </Col>
                         <Col xs={12} lg={6} className="mt-3">
-                            <Image src={HeroSectionImg} className="w-100" alt='Red Ferrari Top car png' />
+                            <Image src={HeroSectionImg} className="w-100 hero-img" alt='Red Ferrari Top car png' />
                         </Col>
                     </Row>
                 </Container>

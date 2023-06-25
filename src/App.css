@@ -42,12 +42,14 @@ h4::after {
     transform: translate(-50%, -50%);
 }
 
-.card-img-filter {
+.card-img-filter,
+.hero-img {
     width: 100%;
     transform: scale(1);
     transition: transform 0.5s;
 }
-.card-img-filter:hover {
+.card-img-filter:hover,
+.hero-img:hover {
     opacity: 1;
     transform: scale(1.2);
     transition: transform 0.5s;
