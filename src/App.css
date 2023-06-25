@@ -10,7 +10,7 @@ h4 {
     position: relative;
 }
 h1 {
-    font-size: 150px !important;
+    font-size: 8rem !important;
 }
 h2 {
     font-size: 30px !important;
@@ -53,4 +53,12 @@ h4::after {
     opacity: 1;
     transform: scale(1.2);
     transition: transform 0.5s;
+}
+.cover-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/src/Assets/NewsLetter/scott-webb-6nzYYtJtVDk-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 500px; /* Adjust the height as needed */
 }
