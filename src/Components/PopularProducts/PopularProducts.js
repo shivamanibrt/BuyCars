@@ -9,49 +9,76 @@ import carImg5 from '../../Assets/PopularProducts/car-png-39068.png';
 import carImg6 from '../../Assets/PopularProducts/honda-brv-pictures-46915.png';
 import carImg7 from '../../Assets/PopularProducts/bmw-car-png-2094.png';
 import carImg8 from '../../Assets/PopularProducts/car-png-39054.png';
+import carImg9 from '../../Assets/PopularProducts/4-red-r8-audi-png-car-image.png';
+import carImg10 from '../../Assets/PopularProducts/84665-car-2017-corolla-toyota-family-download-free-image.png';
+import carImg11 from '../../Assets/PopularProducts/161763-aventador-lamborghini-pic-sports-free-transparent-image-hd.png';
+import carImg12 from '../../Assets/PopularProducts/32902-5-bugatti-file.png';
 
 export const PopularProducts = () => {
     const carModal = [
         {
             carImg: carImg1,
-            description:
-                'A sleek and modern car with advanced features and impressive performance. Experience the thrill of driving with this stylish vehicle',
-            price: '$50,000'
+            description: 'Porsche Boxster - Sports Car',
+            price: '$50,000',
         },
         {
             carImg: carImg2,
-            description: 'Explore the city in this compact and efficient car. Perfect for urban commuting and navigating tight spaces with ease.',
-            price: '$20,000'
+            description: 'Audi S4 - SUV',
+            price: '$20,000',
+
         },
         {
             carImg: carImg3,
-            description: 'Get ready for an adventurous journey with this rugged and powerful SUV. Conquer any terrain and enjoy a comfortable ride for the whole family.',
-            price: '$40,000'
+            description: 'Mercedes-Benz GLE - SUV',
+            price: '$40,000',
         },
         {
             carImg: carImg4,
-            description: 'Experience luxury at its finest with this elegant and sophisticated sedan. Indulge in the finest craftsmanship and cutting-edge technology.',
-            price: '$30,000'
+            description: 'Mercedes-Benz SL-Class - Sport Car',
+            price: '$30,000',
+
         },
         {
             carImg: carImg5,
-            description: 'Embrace the open road with this convertible sports car. Feel the wind in your hair and enjoy the ultimate driving experience in this high-performance vehicle',
-            price: '$60,000'
+            description: 'Mercedes-Benz GLK350 - SUV',
+            price: '$60,000',
+            carType: 'SUV'
         },
         {
             carImg: carImg6,
-            description: 'Discover versatility and practicality in this spacious and comfortable SUV. Designed for the modern family, it offers ample space and safety features',
-            price: '$35,000'
+            description: 'Honda BR-V - SUV Car',
+            price: '$35,000',
+
         },
         {
             carImg: carImg7,
-            description: 'Unleash your inner thrill-seeker with this luxury sports car. With its powerful engine and dynamic design, it delivers an exhilarating driving experience.',
-            price: '$70,000'
+            description: 'Rastar R/C BMW i8 - Sports Car',
+            price: '$70,000',
         },
         {
             carImg: carImg8,
-            description: 'Cruise in style with this compact and fuel-efficient hatchback. Perfect for city dwellers who prioritize efficiency without compromising on style.',
-            price: '$25,000'
+            description: 'Mercedes-Benz ML63 AMG - SUV',
+            price: '$25,000',
+        },
+        {
+            carImg: carImg9,
+            description: 'Mercedes-Benz ML63 AMG - SUV',
+            price: '$25,000',
+        },
+        {
+            carImg: carImg10,
+            description: 'Mercedes-Benz ML63 AMG - SUV',
+            price: '$25,000',
+        },
+        {
+            carImg: carImg11,
+            description: 'Mercedes-Benz ML63 AMG - SUV',
+            price: '$25,000',
+        },
+        {
+            carImg: carImg12,
+            description: 'Bugatti File - Sports Car',
+            price: '$25,000',
         },
     ];
 
@@ -64,7 +91,13 @@ export const PopularProducts = () => {
                 <Row className='text-align-right d-flex flex-wrap'>
                     {carModal.map((item, i) => (
                         <Col key={i} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>
-                            <CardComponent carImg={item.carImg} backgroundColor={backgroundColor} description={item.description} price={item.price} />
+                            <CardComponent
+                                carImg={item.carImg}
+                                backgroundColor={backgroundColor}
+                                description={item.description}
+                                price={item.price}
+                                carType={item.carType}
+                            />
                         </Col>
                     ))}
                 </Row>

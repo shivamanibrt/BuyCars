@@ -1,6 +1,5 @@
 * {
     font-family: "Open Sans", sans-serif;
-    font-family: "Roboto", sans-serif;
 }
 
 h1,
@@ -22,7 +21,7 @@ h4::after {
     left: 0;
     border-image: linear-gradient(to right, #5600e0, #e0d500) 1;
     border-bottom: 2px solid #4a00e0;
-    width: 10%;
+    width: 14%;
     content: "";
 }
 
@@ -45,10 +44,11 @@ h4::after {
 
 .card-img-filter {
     width: 100%;
-    transform: scale(1.15);
+    transform: scale(1);
     transition: transform 0.5s;
 }
 .card-img-filter:hover {
     opacity: 1;
-    transform: scale(1.03);
+    transform: scale(1.2);
+    transition: transform 0.5s;
 }
