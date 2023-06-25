@@ -9,34 +9,30 @@ import hatchBack from '../../Assets/Catagories/car-png-16828 (1).png';
 export const CarTypes = () => {
     const carModal = [
         {
-            carModal: 'Sports Car',
+            carModel: 'Sports Car',
             carImg: sportImg,
-            description: 'A high-performance sports car with sleek design and powerful engine.'
         },
         {
-            carModal: 'HatchBack',
+            carModel: 'Hatchback',
             carImg: hatchBack,
-            description: 'A compact car with a rear door that opens upward to access the cargo area.'
         },
         {
-            carModal: 'Sedan',
+            carModel: 'Sedan',
             carImg: sedanImg,
-            description: 'A four-door car with separate compartments for the engine, passenger, and cargo.'
         },
         {
-            carModal: 'Suv',
+            carModel: 'SUV',
             carImg: suvImg,
-            description: 'A sport utility vehicle designed for off-road capabilities and spacious interiors.'
         },
     ];
 
     return (
-        <div>
+        <div className='p-4'>
             <Container className='p-3'>
                 <Row className='text-align-right d-flex flex-wrap'>
                     {carModal.map((item, i) => (
-                        <Col key={i}>
-                            <CardComponent carModal={item.carModal} carImg={item.carImg} description={item.description} />
+                        <Col key={i} className='d-flex flex-wrap car-types-img-filters'>
+                            <CardComponent carModal={item.carModel} carImg={item.carImg} />
                         </Col>
                     ))}
                 </Row>
