@@ -3,7 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../ReusableComponent/CardComponent';
 import suvImg from '../../Assets/Catagories/car-png-39061.png';
 import sedanImg from '../../Assets/Catagories/honda-brv-pictures-46910.png';
-import sportImg from '../../Assets/Catagories/car-png-39055.png';
+import sportImg from '../../Assets/Catagories/bmw-car-png-2085.png';
 import hatchBack from '../../Assets/Catagories/car-png-16828 (1).png';
 
 export const CarTypes = () => {
@@ -11,6 +11,7 @@ export const CarTypes = () => {
         {
             carModel: 'Sports Car',
             carImg: sportImg,
+            description: 'Hello'
         },
         {
             carModel: 'Hatchback',
@@ -31,12 +32,13 @@ export const CarTypes = () => {
             <Container className='p-3'>
                 <Row className='text-align-right d-flex flex-wrap'>
                     {carModal.map((item, i) => (
-                        <Col key={i} className='d-flex flex-wrap car-types-img-filters'>
+                        <Col key={i} sm={6} md={4} lg={3} className='d-flex flex-wrap mb-3'>
                             <CardComponent carModal={item.carModel} carImg={item.carImg} />
                         </Col>
                     ))}
                 </Row>
             </Container>
         </div>
+
     );
 };

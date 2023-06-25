@@ -2,6 +2,7 @@
     font-family: "Open Sans", sans-serif;
     font-family: "Roboto", sans-serif;
 }
+
 h1,
 h2,
 h3,
@@ -21,7 +22,7 @@ h4::after {
     left: 0;
     border-image: linear-gradient(to right, #5600e0, #e0d500) 1;
     border-bottom: 2px solid #4a00e0;
-    width: 9%;
+    width: 10%;
     content: "";
 }
 
@@ -30,7 +31,7 @@ h4::after {
 }
 .hero_section {
     position: relative;
-    min-height: 90vh;
+    min-height: 100vh;
     background-color: #4a00e0;
     background-image: linear-gradient(to right, #5600e0, #e0d500);
 }
@@ -41,24 +42,13 @@ h4::after {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.img {
-    filter: drop-shadow(2px 4px 8px #585858);
-}
+
 .card-img-filter {
     width: 100%;
     transform: scale(1.15);
     transition: transform 0.5s;
-    /* opacity: 0.5; */
 }
 .card-img-filter:hover {
     opacity: 1;
     transform: scale(1.03);
-}
-.car-types-img-filters {
-    border: 1px solid rgba(0, 0, 0, 0.405);
-    margin-right: 30px;
-}
-.card-text {
-    position: absolute;
-    top: 50%;
 }
