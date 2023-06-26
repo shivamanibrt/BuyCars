@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../ReusableComponent/CardComponent';
+import { motion } from 'framer-motion';
 import carImg1 from '../../Assets/PopularProducts/car-front-png-32726.png';
 import carImg2 from '../../Assets/PopularProducts/car-png-16828 (1).png';
 import carImg3 from '../../Assets/PopularProducts/car-png-39054.png';
@@ -85,23 +86,33 @@ export const PopularProducts = () => {
     const backgroundColor = '#eae8e8cc';
 
     return (
-        <div className='p-5'>
-            <Container>
-                <h4 className='mb-4 h4'>Popular Products</h4>
-                <Row className='text-align-right d-flex flex-wrap'>
-                    {carModal.map((item, i) => (
-                        <Col key={i} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>
-                            <CardComponent
-                                carImg={item.carImg}
-                                backgroundColor={backgroundColor}
-                                description={item.description}
-                                price={item.price}
-                                carType={item.carType}
-                            />
-                        </Col>
-                    ))}
-                </Row>
-            </Container>
-        </div>
+        <motion.div
+            initial={{ scale: 0 }}
+            animate={{ rotate: 0, scale: 1 }}
+            transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20
+            }}
+        >
+            <div className='p-5'>
+                <Container>
+                    <h4 className='mb-4 h4'>Popular Products</h4>
+                    <Row className='text-align-right d-flex flex-wrap'>
+                        {carModal.map((item, i) => (
+                            <Col key={i} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>
+                                <CardComponent
+                                    carImg={item.carImg}
+                                    backgroundColor={backgroundColor}
+                                    description={item.description}
+                                    price={item.price}
+                                    carType={item.carType}
+                                />
+                            </Col>
+                        ))}
+                    </Row>
+                </Container>
+            </div>
+        </motion.div>
     );
 };

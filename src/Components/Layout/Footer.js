@@ -40,6 +40,10 @@ export const Footer = () => {
                     </Col>
                 </Row>
             </Container>
+            <div className='text-center mt-3'>
+                Created by &copy; {""}
+                <a href='https://shivamanibartaula.com' target='_blank' rel='noopener noreferrer'>Shivamani Bartaula</a> 2023 . All rights reserved.
+            </div>
         </div>
     );
 };

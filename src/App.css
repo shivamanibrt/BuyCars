@@ -60,5 +60,14 @@ h2 {
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 500px; /* Adjust the height as needed */
+    height: 50vh; /* Adjust the height as needed */
+}
+.about-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/src/Assets/About/joey-banks-YApiWyp0lqo-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 70vh; /* Adjust the height as needed */
+    background-attachment: fixed;
 }

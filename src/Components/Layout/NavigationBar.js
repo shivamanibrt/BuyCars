@@ -15,20 +15,20 @@ export const NavigationBar = () => {
             className="nav-bar bg-dark"
         >
             <Container>
-                <Navbar.Brand as={Link} to="/home" className="text-center d-lg-block">
+                <Navbar.Brand as={Link} to="home" className="text-center d-lg-block">
                     BuyCars
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/" className="d-lg-none">
+                        <Nav.Link as={Link} to="/about" className="d-lg-none">
                             ABOUT
                         </Nav.Link>
                         <Nav.Link as={Link} to="/" className="d-lg-none">
                             CATEGORIES
                         </Nav.Link>
                         <Nav className="d-none d-lg-flex">
-                            <Nav.Link as={Link} to="/">
+                            <Nav.Link as={Link} to="/about">
                                 ABOUT
                             </Nav.Link>
                             <Nav.Link as={Link} to="/">
