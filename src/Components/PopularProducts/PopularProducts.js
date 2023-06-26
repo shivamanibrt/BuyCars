@@ -87,7 +87,7 @@ export const PopularProducts = () => {
     return (
         <div className='p-5'>
             <Container>
-                <h4 className='mb-4'>Popular Products</h4>
+                <h4 className='mb-4 h4'>Popular Products</h4>
                 <Row className='text-align-right d-flex flex-wrap'>
                     {carModal.map((item, i) => (
                         <Col key={i} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>

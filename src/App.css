@@ -10,12 +10,12 @@ h4 {
     position: relative;
 }
 h1 {
-    font-size: 8rem !important;
+    font-size: 6rem !important;
 }
 h2 {
     font-size: 30px !important;
 }
-h4::after {
+.h4::after {
     position: absolute;
     bottom: -15px;
     left: 0;
