@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icons } from '../Icons/Icons';
 import Form from 'react-bootstrap/Form';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 export const NewsLetter = () => {
     return (
@@ -12,18 +12,21 @@ export const NewsLetter = () => {
             <div>
                 <h4>Sign up for the latest updates and offers</h4>
             </div>
-            <div>
+            <div className="container-fluid d-flex align-items-center justify-content-center vh-50">
                 <Form>
-                    <div className="d-flex flex-wrap gap-1 justify-content-center">
-                        <Col sm={6} md={4} lg={3}>
-                            <Form.Control placeholder="johnDoe@email.com" style={{ borderRadius: '0' }} />
-                        </Col>
-                        <Col sm={6} md={4} lg={3}>
-                            <Button variant="primary" style={{ borderRadius: '0' }}>Subscribe</Button>
-                        </Col>
+                    <div className="row">
+                        <div className="col-lg-7 col-md-12">
+                            <div className="d-flex flex-wrap gap-1 justify-content-center">
+                                <Form.Control placeholder="johnDoe@email.com" style={{ borderRadius: '0' }} />
+                            </div>
+                        </div>
+                        <div className="col-lg-5 col-md-12">
+                            <div className="d-grid">
+                                <Button variant="primary" style={{ borderRadius: '0' }} className="mobile-button">Subscribe</Button>
+                            </div>
+                        </div>
                     </div>
                 </Form>
-
             </div >
             <div>
                 <h5>Follow our Social media</h5>

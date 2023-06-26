@@ -18,11 +18,11 @@ export const CarTypes = () => {
             carImg: hatchBack,
         },
         {
-            carModel: 'Sedan',
+            carModel: 'Suv',
             carImg: sedanImg,
         },
         {
-            carModel: 'SUV',
+            carModel: 'Sedan',
             carImg: suvImg,
         },
     ];

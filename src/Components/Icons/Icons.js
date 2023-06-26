@@ -1,14 +1,14 @@
 import React from 'react';
-
-import { AiOutlineHome, AiOutlineSearch, AiOutlineMessage, AiOutlineUser } from 'react-icons/ai';
+import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from 'react-icons/ai';
+import { IoLogoYoutube } from 'react-icons/io';
 
 export const Icons = () => {
     return (
-        <div >
-            <AiOutlineHome size={30} />
-            <AiOutlineSearch size={30} />
-            <AiOutlineMessage size={30} />
-            <AiOutlineUser size={30} />
-        </div >
+        <div className="social-icons">
+            <AiFillFacebook size={30} className="icon bi-facebook" />
+            <AiFillTwitterSquare size={30} className="icon bi-twitter" />
+            <IoLogoYoutube size={30} className="icon bi-youtube" />
+            <AiFillInstagram size={30} className="icon bi-instagram" />
+        </div>
     );
 };
