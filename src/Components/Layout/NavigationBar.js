@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -31,9 +31,13 @@ export const NavigationBar = () => {
                             <Nav.Link as={Link} to="/about">
                                 ABOUT
                             </Nav.Link>
-                            <Nav.Link as={Link} to="/">
-                                CATEGORIES
-                            </Nav.Link>
+                            <NavDropdown title="CATEGORIES" id="basic-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">
+                                    Another action
+                                </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                            </NavDropdown>
                         </Nav>
                     </Nav>
                     <Nav>
