@@ -9,7 +9,7 @@ export const About = () => {
 
     return (
         <div>
-            <div div className='about-section'>
+            <div div className='about-section main'>
             </div >
             <div className='text-secondary'>
                 <Container className='mt-3 mb-3'>

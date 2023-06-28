@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -21,24 +21,12 @@ export const NavigationBar = () => {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto">
-                        <Nav.Link as={Link} to="/about" className="d-lg-none">
+                        <Nav.Link as={Link} to="/about" >
                             ABOUT
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/" className="d-lg-none">
-                            CATEGORIES
+                        <Nav.Link as={Link} to="/catagories" >
+                            CATAGORIES
                         </Nav.Link>
-                        <Nav className="d-none d-lg-flex">
-                            <Nav.Link as={Link} to="/about">
-                                ABOUT
-                            </Nav.Link>
-                            <NavDropdown title="CATEGORIES" id="basic-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">
-                                    Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                            </NavDropdown>
-                        </Nav>
                     </Nav>
                     <Nav>
                         <Nav.Link as={Link} to="/search" className="icon-link">
@@ -49,6 +37,9 @@ export const NavigationBar = () => {
                         </Nav.Link>
                         <Nav.Link as={Link} to="/cart" className="icon-link">
                             <AiOutlineShoppingCart />
+                        </Nav.Link>
+                        <Nav.Link as={Link} to="/login" className="icon-link">
+                            <Button variant="outline-light">Login / SignUp</Button>
                         </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
