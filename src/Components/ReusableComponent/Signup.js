@@ -1,8 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
 import { CustomInput } from './CustomInput'
 
 export const Signup = () => {
+    const [form, setForm] = useState({});
+
+    const handelOnchange = e => {
+        const { name, value } = e.target
+        setForm({
+            ...form,
+            [name]: value
+        })
+        console.log(form)
+    }
+
+    const handelOnSubmit = () => {
+
+    }
     const inputs = [
         {
             label: 'First Name',
@@ -38,12 +52,13 @@ export const Signup = () => {
             type: 'password',
             placeholder: '******',
             required: true
-        },]
+        },
+    ]
     return (
         <div className='signUp-page'>
-            <Container className='d-flex align-items-center text-secondary justify-content-center' style={{ height: '90vh' }}>
-                <Form className='p-5 shadow-lg  m-auto login-form'
-                    style={{ width: '450px', backgroundColor: 'white' }}>
+            <Container className='d-flex align-items-center text-secondary justify-content-center p-5' >
+                <Form className='p-5 shadow-lg m-auto login-form'
+                    style={{ width: '450px', backgroundColor: 'white' }} onSubmit={handelOnSubmit}>
                     <h4 className='text-dark fw-bolder mb-3 text-center'>Join BuyCars</h4>
                     <Form.Text>
                         Anyone can create admin or user account for expirement purpose.
@@ -52,7 +67,7 @@ export const Signup = () => {
                     <div className='mt-2' >
                         <Form.Group className="mb-3" controlId='formBasicElement'>
                             <Form.Label>Account Type</Form.Label>
-                            <Form.Select name='role' >
+                            <Form.Select name='role' onChange={handelOnchange} >
                                 <option value=''>Select user</option>
                                 <option value='admin'>Admin</option>
                                 <option value='user'>User</option>
@@ -60,7 +75,7 @@ export const Signup = () => {
                         </Form.Group>
                         {
                             inputs.map((item, i) => (
-                                <CustomInput key={i} {...item} />
+                                <CustomInput key={i} {...item} onChange={handelOnchange} />
                             ))
                         }
                     </div>

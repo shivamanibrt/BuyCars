@@ -15,7 +15,7 @@ export const NavigationBar = () => {
             className="nav-bar bg-dark"
         >
             <Container>
-                <Navbar.Brand as={Link} to="home" className="text-center d-lg-block">
+                <Navbar.Brand as={Link} to="/" className="text-center d-lg-block">
                     BuyCars
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />

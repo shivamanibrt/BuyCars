@@ -4,8 +4,13 @@ import { Button, Col, Container, Row } from 'react-bootstrap'
 import aboutImFirst from '../../Assets/About/claudio-schwarz-Zv8GOTkNEXM-unsplash.jpg'
 import aboutImgSecond from '../../Assets/About/lance-asper-N9Pf2J656aQ-unsplash.jpg'
 import aboutImgThird from '../../Assets/About/tyler-clemmensen-5q1xp_kresk-unsplash.jpg'
+import { useNavigate } from 'react-router-dom'
 
 export const About = () => {
+    const navigate = useNavigate();
+    const handelOnClick = () => {
+        navigate('/login')
+    }
 
     return (
         <div>
@@ -50,7 +55,7 @@ export const About = () => {
                                 <p className='fs-5 lh-lg'>Become a part of our thrilling community and embark on a journey of exploration, learning, and growth. Join us at BuyCars and unlock a world of automotive knowledge, inspiration, and connections. Together, let's create a shared space where engines roar and ideas accelerate.
                                     <div className="text-center mt-3">
                                         <Button variant="outline-primary"
-                                            className="col-4">Join Us</Button>
+                                            className="col-4" onClick={handelOnClick}>Join Us</Button>
                                     </div>
                                 </p>
                             </Col>
