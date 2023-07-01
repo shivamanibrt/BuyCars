@@ -1,11 +1,11 @@
 import React from 'react'
-import { AdminLayout } from '../AdminLayout/AdminLayout'
+import { AdminLayout } from '../../Admin/AdminLayout/AdminLayout'
 
-export const Orders = () => {
+export const Profile = () => {
     return (
         <AdminLayout>
             <div className='p-4 text-secondary'>
-                <h3>Orders</h3>
+                <h3>Profile</h3>
             </div>
         </AdminLayout>
     )

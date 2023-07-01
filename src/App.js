@@ -10,7 +10,8 @@ import { Home } from './Pages/Home/Home';
 import { AdminLayout } from './Admin/AdminLayout/AdminLayout';
 import { Dashboard } from './Admin/Dashboard/Dashboard';
 import { Products } from './Admin/Products/Products';
-import { Orders } from './Admin/Orders/Orders';
+import { Catgories } from './Admin/Catagories/Catagories';
+import { Profile } from './Admin/Profile/Profile';
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
           <Route path='adminLayout' element={<AdminLayout />} />
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<Products />} />
-          <Route path='orders' element={<Orders />} />
+          <Route path='catgories' element={<Catgories />} />
+          <Route path='profile' element={<Profile />} />
         </Routes>
       </Layout>
     </>
