@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
-import HeroSectionImg from '../../Assets/Hero Section/top-car-view-png-34863.png';
+import HeroSectionImg from '../../Assets/Hero Section/top-car-view-png-34863.png'
 
 export const HeroSection = () => {
     return (

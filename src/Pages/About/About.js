@@ -54,7 +54,7 @@ export const About = () => {
                             <Col xs={12} md={6} lg={8} className='d-flex align-items-center mt-3'>
                                 <p className='fs-5 lh-lg'>Become a part of our thrilling community and embark on a journey of exploration, learning, and growth. Join us at BuyCars and unlock a world of automotive knowledge, inspiration, and connections. Together, let's create a shared space where engines roar and ideas accelerate.
                                     <div className="text-center mt-3">
-                                        <Button variant="outline-primary"
+                                        <Button variant="outline-dark"
                                             className="col-4" onClick={handelOnClick}>Join Us</Button>
                                     </div>
                                 </p>

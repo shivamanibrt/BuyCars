@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { CustomInput } from './CustomInput';
+import { CustomInput } from '../ReusableComponent/CustomInput';
 import { useNavigate } from 'react-router-dom';
-import { Icons } from '../Icons/Icons';
+import { Icons } from '../../Icons/Icons';
 
 
 
@@ -30,8 +30,8 @@ export const Login = () => {
 
     return (
         <div className='login-page'>
-            <Container className='d-flex align-items-center text-secondary justify-content-center p-5' >
-                <Form className='p-5 shadow-lg  m-auto login-form'
+            <Container className='d-flex align-items-center text-secondary justify-content-center' style={{ height: '80vh' }}>
+                <Form className='p-5 shadow-lg m-auto login-form'
                     style={{ width: '450px', backgroundColor: 'white' }}>
                     <h4 className='text-dark fw-bolder mb-3 text-center'>Login</h4>
                     <div className='mt-2'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icons } from '../Icons/Icons';
+import { Icons } from '../../Icons/Icons';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 
