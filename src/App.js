@@ -6,7 +6,8 @@ import { About } from './Pages/About/About';
 import { Login } from './Components/SignUp Login/Login';
 import { Signup } from './Components/SignUp Login/Signup';
 import { Home } from './Pages/Home/Home';
-import { AdminLayout } from './Admin/AdminLayout';
+
+import { AdminLayout } from './Admin/AdminLayout/AdminLayout';
 import { Dashboard } from './Admin/Dashboard/Dashboard';
 import { Products } from './Admin/Products/Products';
 import { Orders } from './Admin/Orders/Orders';

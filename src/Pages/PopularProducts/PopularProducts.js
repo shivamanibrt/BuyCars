@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { CardComponent } from '../ReusableComponent/CardComponent';
+import { CardComponent } from '../../Components/ReusableComponent/CardComponent';
 import { motion } from 'framer-motion';
 import carImg1 from '../../Assets/PopularProducts/car-front-png-32726.png';
 import carImg2 from '../../Assets/PopularProducts/car-png-16828 (1).png';

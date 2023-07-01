@@ -1,7 +1,9 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { CardComponent } from '../ReusableComponent/CardComponent';
+import { CardComponent } from '../../Components/ReusableComponent/CardComponent'
+
 import { motion } from 'framer-motion';
+
 import suvImg from '../../Assets/Catagories/car-png-39061.png';
 import sedanImg from '../../Assets/Catagories/honda-brv-pictures-46910.png';
 import sportImg from '../../Assets/Catagories/bmw-car-png-2085.png';
