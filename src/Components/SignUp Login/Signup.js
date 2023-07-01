@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Container, Form } from 'react-bootstrap'
-import { CustomInput } from './CustomInput'
+import { CustomInput } from '../ReusableComponent/CustomInput'
 
 export const Signup = () => {
     const [form, setForm] = useState({});
