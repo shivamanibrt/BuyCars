@@ -4,16 +4,20 @@ import { Link } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 
 export const NavigationBar = () => {
-    const user = !true;
+
+    const { user } = useSelector((state) => state.user);
+
+
     return (
         <Navbar
             collapseOnSelect
             expand="lg"
             variant="dark"
             style={{ fontSize: '20px' }}
-            className="nav-bar bg-dark"
+            className="nav-bar bg-dark" a
         >
             <Container>
                 <Navbar.Brand as={Link} to="/" className="text-center d-lg-block">
@@ -30,7 +34,16 @@ export const NavigationBar = () => {
                         </Nav.Link>
                     </Nav>
                     <Nav>
-                        {user ? (
+                        {user?.uid ? (
+                            <>
+                                <Nav.Link as={Link} to="/search" className="icon-link">
+                                    <BsSearch />
+                                </Nav.Link>
+                                <Nav.Link as={Link} to="/dashboard" className="icon-link">
+                                    <Button variant="outline-light">Dashboard </Button>
+                                </Nav.Link>
+                            </>
+                        ) : (
                             <>
                                 <Nav.Link as={Link} to="/search" className="icon-link">
                                     <BsSearch />
@@ -43,15 +56,6 @@ export const NavigationBar = () => {
                                 </Nav.Link>
                                 <Nav.Link as={Link} to="/login" className="icon-link">
                                     <Button variant="outline-light">Login / SignUp</Button>
-                                </Nav.Link>
-                            </>
-                        ) : (
-                            <>
-                                <Nav.Link as={Link} to="/search" className="icon-link">
-                                    <BsSearch />
-                                </Nav.Link>
-                                <Nav.Link as={Link} to="/adminLayout" className="icon-link">
-                                    <Button variant="outline-light">Dashboard </Button>
                                 </Nav.Link>
                             </>
                         )}

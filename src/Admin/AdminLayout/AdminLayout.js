@@ -7,6 +7,7 @@ import { LuLayoutDashboard } from 'react-icons/lu';
 import { AiFillSetting } from 'react-icons/ai';
 import { ImProfile } from 'react-icons/im';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { SiProducthunt } from 'react-icons/si';
 
 export const AdminLayout = ({ children }) => {
     const user = true;
@@ -25,6 +26,11 @@ export const AdminLayout = ({ children }) => {
                                     </Link>
                                 </li>
 
+                                <li className='nav-item list-unstyled p-3'>
+                                    <Link to='/products' className='nav-link'>
+                                        <SiProducthunt size={25} /> Products
+                                    </Link>
+                                </li>
                                 <li className='nav-item list-unstyled p-3'>
                                     <Link to='/catgories' className='nav-link'>
                                         <AiOutlineShoppingCart size={25} /> Catagories

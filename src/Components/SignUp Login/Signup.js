@@ -1,22 +1,56 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify';
+
 import { Button, Container, Form } from 'react-bootstrap'
 import { CustomInput } from '../ReusableComponent/CustomInput'
 
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth, db } from '../../Firebase/firebase-config'
+import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from 'firebase/firestore';
+
+
 export const Signup = () => {
+
     const [form, setForm] = useState({});
+    const navigate = useNavigate();
 
     const handelOnchange = e => {
         const { name, value } = e.target
+
         setForm({
             ...form,
             [name]: value
         })
-        console.log(form)
     }
 
-    const handelOnSubmit = () => {
+    const handelOnSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            const { confirmPassword, password, ...rest } = form;
 
+
+            if (confirmPassword !== password) {
+                toast.error('Password not matched')
+                return;
+            }
+            //Register user by creating a new account
+            const pendingUser = createUserWithEmailAndPassword(auth, rest.email, password)
+
+
+            const { user } = await pendingUser;
+            if (user?.uid) {
+                //store aditional user data in the firestore databse
+                await setDoc(doc(db, 'users', user.uid), rest)
+                toast.success("Account Created")
+                navigate('/')
+            }
+
+        } catch (error) {
+            toast.error(error.message)
+        }
     }
+
     const inputs = [
         {
             label: 'First Name',

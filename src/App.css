@@ -9,12 +9,15 @@ h4 {
     text-transform: uppercase;
     position: relative;
 }
+
 h1 {
     font-size: 6rem !important;
 }
+
 h2 {
     font-size: 30px !important;
 }
+
 .h4::after {
     position: absolute;
     bottom: -15px;
@@ -28,11 +31,11 @@ h2 {
 .main {
     min-height: 80vh;
 }
+
 .hero_section {
     position: relative;
     min-height: 100vh;
-    background-color: #4a00e0;
-    background-image: linear-gradient(to right, #5600e0, #e0d500);
+    background: linear-gradient(to right, #5600e0, #e0d500);
 }
 
 .herosection_container {
@@ -48,20 +51,22 @@ h2 {
     transform: scale(1);
     transition: transform 0.5s;
 }
+
 .card-img-filter:hover,
 .hero-img:hover {
     opacity: 1;
     transform: scale(1.2);
-    transition: transform 0.5s;
 }
+
 .cover-container {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url("/src/Assets/NewsLetter/scott-webb-6nzYYtJtVDk-unsplash.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 50vh; /* Adjust the height as needed */
+    height: 50vh;
 }
+
 .about-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url("/src/Assets/About/joey-banks-YApiWyp0lqo-unsplash.jpg");
@@ -69,27 +74,24 @@ h2 {
     background-position: center;
     width: 100%;
 }
+
 .login-page,
 .signUp-page {
     background-image: linear-gradient(to right, #5600e0a7, #e0d500bb);
-    /* min-height: 90vh; */
 }
 
 .login-form {
     border: p-5;
 }
-.login-signUp-btn:hover {
-    cursor: pointer;
-}
+
 .user-layout {
     display: flex;
-    min-height: 100vh;
+    min-height: 90vh;
     border-bottom: 1px solid #b2b2b2;
 }
 
 .left {
     width: 30%;
-    min-height: 100vh;
     border-right: 1px solid #b2b2b2;
 }
 
@@ -97,4 +99,13 @@ h2 {
     width: 70%;
     display: flex;
     flex-direction: column;
+}
+.nav-item:hover,
+.signUp-btn:hover {
+    cursor: pointer;
+    background-color: #f0f0f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    display: inline-block;
+    /* padding: 4px; */
 }
