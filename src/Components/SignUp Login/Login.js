@@ -14,13 +14,12 @@ export const Login = () => {
     const dispatch = useDispatch();
 
     const [form, setForm] = useState({});
-    const { user } = useSelector(state => state.user);
 
+    const { user } = useSelector((state) => state.user);
 
     useEffect(() => {
         user?.uid && navigate('/')
     })
-
 
     const signUpFunciton = () => {
         navigate('/signUp')
@@ -32,6 +31,7 @@ export const Login = () => {
             ...form,
             [name]: value,
         });
+        console.log(form)
     }
 
     const handelOnSubmit = async (e) => {
@@ -58,14 +58,14 @@ export const Login = () => {
 
     return (
         <div className='login-page'>
-            <Container className='d-flex align-items-center text-secondary justify-content-center' style={{ height: '80vh' }}>
+            <Container className='d-flex align-items-center text-secondary justify-content-center p-5'>
                 <Form className='p-5 shadow-lg m-auto login-form'
                     style={{ width: '450px', backgroundColor: 'white' }}
                     onSubmit={handelOnSubmit}>
                     <h4 className='text-dark fw-bolder mb-3 text-center'>Login</h4>
                     <div className='mt-2'>
                         {inputs.map((item, i) => (
-                            <CustomInput key={i} {...item} onchange={handelOnChange} />
+                            <CustomInput key={i} {...item} onChange={handelOnChange} />
                         ))}
                     </div>
                     <div className='d-grid'>

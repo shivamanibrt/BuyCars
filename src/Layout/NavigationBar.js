@@ -1,14 +1,32 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { signOut } from 'firebase/auth';
+import { auth } from '../Firebase/firebase-config';
+import { setUser } from '../Redux/userSlice';
+import { toast } from 'react-toastify';
 
 export const NavigationBar = () => {
 
     const { user } = useSelector((state) => state.user);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const handleOnLogout = () => {
+        signOut(auth)
+            .then(() => {
+                dispatch(setUser({}));
+                toast.success('User logged out');
+                navigate('/');
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            });
+    }
 
 
     return (
@@ -39,8 +57,13 @@ export const NavigationBar = () => {
                                 <Nav.Link as={Link} to="/search" className="icon-link">
                                     <BsSearch />
                                 </Nav.Link>
-                                <Nav.Link as={Link} to="/dashboard" className="icon-link">
-                                    <Button variant="outline-light">Dashboard </Button>
+                                {user?.role === 'admin' && (
+                                    <Nav.Link as={Link} to="/dashboard" className="icon-link">
+                                        <Button variant="outline-light">Dashboard</Button>
+                                    </Nav.Link>
+                                )}
+                                <Nav.Link as={Link} to="/" className="icon-link">
+                                    <Button variant="outline" className='btn btn-danger' onClick={handleOnLogout}>Log Out</Button>
                                 </Nav.Link>
                             </>
                         ) : (

@@ -11,7 +11,7 @@ h4 {
 }
 
 h1 {
-    font-size: 6rem !important;
+    font-size: 5rem !important;
 }
 
 h2 {
@@ -27,6 +27,10 @@ h2 {
     width: 14%;
     content: "";
 }
+.dashboard_heading {
+    border-bottom: 1px solid #b2b2b2;
+    width: 20%;
+}
 
 .main {
     min-height: 80vh;
@@ -34,13 +38,15 @@ h2 {
 
 .hero_section {
     position: relative;
+
     min-height: 100vh;
     background: linear-gradient(to right, #5600e0, #e0d500);
 }
 
 .herosection_container {
     position: absolute;
-    top: 50%;
+    margin-top: 5%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -106,6 +112,10 @@ h2 {
     background-color: #f0f0f0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
+}
+
+.signUp-btn:hover {
     display: inline-block;
-    /* padding: 4px; */
+    width: 50%;
+    /* padding: 5px; */
 }
