@@ -38,17 +38,8 @@ h2 {
 
 .hero_section {
     position: relative;
-
-    min-height: 100vh;
+    min-height: 80vh;
     background: linear-gradient(to right, #5600e0, #e0d500);
-}
-
-.herosection_container {
-    position: absolute;
-    margin-top: 5%;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 }
 
 .card-img-filter,
