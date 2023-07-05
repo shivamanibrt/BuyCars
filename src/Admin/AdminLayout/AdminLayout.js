@@ -17,7 +17,7 @@ export const AdminLayout = ({ children }) => {
         <PrivatePage>
             <div className='user-layout'>
                 <div className='left'>
-                    <h3 className='text-center text-secondary mt-4'>Hi Admin!</h3>
+                    <h3 className='text-center text-secondary mt-4'>Hi {user?.fName}!</h3>
                     <ul className='nav-links'>
                         {user?.uid && ( // Use conditional rendering with `&&`
                             <>

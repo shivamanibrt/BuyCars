@@ -8,7 +8,6 @@ import { toast } from 'react-toastify'
 import { createNewCarAction } from '../../Redux/Car/CarAction'
 
 
-
 export const Products = () => {
     const [addProduct, addNewProduct] = useState({});
     const dispatch = useDispatch();
@@ -57,12 +56,22 @@ export const Products = () => {
             type: 'select', // Changed type to 'select'
             options: ['Sports Car', 'HatchBack', 'SUV', 'Sedan'],
             required: true,
+            description: 'Porsche Boxster - Sports Car',
         },
         {
             label: 'Car Image URL',
-            name: 'carUrl',
+            name: 'carImg',
             type: 'url',
             placeholder: 'http://image-url.com',
+            required: true,
+        },
+        {
+            label: 'Description',
+            name: 'description',
+            type: 'text',
+            as: 'textarea',
+            placeholder: 'Write Car description',
+            style: { height: '200px', resize: 'none' },
             required: true,
         },
     ];
@@ -73,7 +82,6 @@ export const Products = () => {
                 <div className='p-4 text-secondary'>
                     <h3 className='dashboard_heading'>Products</h3>
                 </div>
-
                 <Form
                     className="border p-5 mt-2 mb-3 shadow-lg rounded m-auto"
                     style={{ maxWidth: '70%' }}

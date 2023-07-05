@@ -3,7 +3,7 @@ import { Card } from 'react-bootstrap';
 
 export const CardComponent = ({ carModal, carImg, description, backgroundColor, price }) => {
     return (
-        <>
+        <div>
             <Card className="text-center border p-3" style={{ backgroundColor }}>
                 <Card.Img src={carImg} className="card-img-filter" />
                 <Card.Body className="d-flex flex-column justify-content-center align-items-center">
@@ -11,10 +11,9 @@ export const CardComponent = ({ carModal, carImg, description, backgroundColor, 
                 </Card.Body>
             </Card>
             <div>
-                <p>{description} </p>
-                <p>{price}</p>
+                <p>{description}</p>
+                {price && <p>$ {price}</p>}
             </div>
-
-        </>
+        </div>
     );
 };
