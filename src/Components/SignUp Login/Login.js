@@ -31,7 +31,6 @@ export const Login = () => {
             ...form,
             [name]: value,
         });
-        console.log(form)
     }
 
     const handelOnSubmit = async (e) => {

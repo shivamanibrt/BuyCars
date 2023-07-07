@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/firebase-config";
 import { toast } from "react-toastify";
 import { setCar } from "./carSlice";
@@ -25,3 +25,13 @@ export const createNewCarAction = (carObj) => async (dispatch) => {
         toast.error(error.message);
     }
 };
+
+export const deleteCarAction = (id) => async (dispatch) => {
+    try {
+        await deleteDoc(doc(db, 'Cars', id));
+        dispatch(getAllCarsAction());
+
+    } catch (error) {
+        toast.error(error.message);
+    }
+}
