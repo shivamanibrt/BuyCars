@@ -27,6 +27,7 @@ h2 {
     width: 14%;
     content: "";
 }
+
 .dashboard_heading {
     border-bottom: 1px solid #b2b2b2;
     width: 20%;
@@ -90,6 +91,11 @@ h2 {
 .left {
     width: 30%;
     border-right: 1px solid #b2b2b2;
+    transition: width 0.3s ease;
+}
+
+.menu-minimized .left {
+    width: 10%;
 }
 
 .right {
@@ -97,6 +103,7 @@ h2 {
     display: flex;
     flex-direction: column;
 }
+
 .nav-item:hover,
 .signUp-btn:hover {
     cursor: pointer;
@@ -108,5 +115,16 @@ h2 {
 .signUp-btn:hover {
     display: inline-block;
     width: 50%;
-    /* padding: 5px; */
 }
+
+.edit-column {
+    width: 10%;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.edit-column button {
+    width: 100%;
+}
+
+/* Add your other CSS styles as needed */

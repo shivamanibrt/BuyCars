@@ -19,6 +19,7 @@ import { auth } from './Firebase/firebase-config';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { NewCar } from './Admin/Products/NewCar';
 
 
 
@@ -43,6 +44,8 @@ function App() {
           <Route path='products' element={<Products />} />
           <Route path='catgories' element={<Catgories />} />
           <Route path='profile' element={<Profile />} />
+          <Route path='newCar' element={<NewCar />} />
+
         </Routes>
         <ToastContainer />
       </Layout>

@@ -7,7 +7,7 @@ import { getAllCarsAction } from '../../Redux/Car/CarAction';
 
 export const PopularProducts = () => {
     const { car } = useSelector((state) => state.car);
-    const backgroundColor = '#eae8e8cc';
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export const PopularProducts = () => {
                             <Col key={item.id} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>
                                 <CardComponent
                                     carImg={item.carImg}
-                                    backgroundColor={backgroundColor}
+                                    // backgroundColor={backgroundColor}
                                     carType={item.carType}
                                     price={item.carPrice}
                                     description={item.description}

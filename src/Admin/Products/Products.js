@@ -1,80 +1,31 @@
-import React, { useState } from 'react'
-import { AdminLayout } from '../AdminLayout/AdminLayout'
-import { Button, Container, Form } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
-import { CustomInput } from '../../Components/ReusableComponent/CustomInput'
-import { useDispatch } from 'react-redux'
-import { toast } from 'react-toastify'
-import { createNewCarAction } from '../../Redux/Car/CarAction'
+import React, { useEffect } from 'react';
+import { AdminLayout } from '../AdminLayout/AdminLayout';
+import { Button, Col, Container, Row, Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteCarAction, getAllCarsAction } from '../../Redux/Car/CarAction';
+import { GrEdit } from 'react-icons/gr'
+import { AiFillDelete } from 'react-icons/ai'
 
 
 export const Products = () => {
-    const [addProduct, addNewProduct] = useState({});
-    const dispatch = useDispatch();
-
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const { car } = useSelector((state) => state.car);
 
+    useEffect(() => {
+        !car.length && dispatch(getAllCarsAction());
+    }, [dispatch, car]);
 
-    const handleOnChange = (e) => {
-        const { name, value } = e.target;
-        addNewProduct(
-            {
-                ...addProduct,
-                [name]: value
-            });
+    const handleOnClick = () => {
+        navigate('/newCar');
     };
-
-    const handleOnSubmit = async (e) => {
-        try {
-            e.preventDefault();
-
-            dispatch(createNewCarAction(addProduct));
-            navigate('/products');
-
-        } catch (error) {
-            toast.error(error.message);
+    const handleOnDelete = id => {
+        if (window.confirm('Are you sure you want to delete this item')) {
+            dispatch(deleteCarAction(id));
         }
-    };
-    const inputs = [
-        {
-            label: 'Car Model',
-            name: 'carMake',
-            type: 'text',
-            placeholder: 'Toyota Camry',
-            required: true,
-        },
-        {
-            label: 'Car Price',
-            name: 'carPrice',
-            type: 'number',
-            placeholder: '$20000',
-            required: true,
-        },
-        {
-            label: 'Car Type',
-            name: 'carType',
-            type: 'select', // Changed type to 'select'
-            options: ['Sports Car', 'HatchBack', 'SUV', 'Sedan'],
-            required: true,
-            description: 'Porsche Boxster - Sports Car',
-        },
-        {
-            label: 'Car Image URL',
-            name: 'carImg',
-            type: 'url',
-            placeholder: 'http://image-url.com',
-            required: true,
-        },
-        {
-            label: 'Description',
-            name: 'description',
-            type: 'text',
-            as: 'textarea',
-            placeholder: 'Write Car description',
-            style: { height: '200px', resize: 'none' },
-            required: true,
-        },
-    ];
+    }
+
 
     return (
         <AdminLayout>
@@ -82,24 +33,44 @@ export const Products = () => {
                 <div className='p-4 text-secondary'>
                     <h3 className='dashboard_heading'>Products</h3>
                 </div>
-                <Form
-                    className="border p-5 mt-2 mb-3 shadow-lg rounded m-auto"
-                    style={{ maxWidth: '70%' }}
-                    onSubmit={handleOnSubmit}
-                >
-                    <h3 className="text-primary fw-bolder mb-3">Add New Car</h3>
-                    <div className="mt-2">
-                        {inputs.map((item, i) => (
-                            <CustomInput key={i} {...item} onChange={handleOnChange} />
+                <div className='mb-4'>
+                    <Button onClick={handleOnClick}>Add New Cars</Button>
+                </div>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+
+                            <th>Thumbnail</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {car.map((item, i) => (
+                            <tr key={item.id}>
+
+                                <td>
+                                    <img src={item.carImg} alt='' style={{ width: '50%', height: '100%' }} />
+                                </td>
+                                <td>{item.description} ${item.carPrice} {item.carMake} </td>
+                                <td className='edit-column'>
+                                    <p className='text-center text-secondary'>Car Number {i + 1}<hr /></p>
+                                    <Row>
+                                        <Col className='mb-4'>
+                                            <Button variant='warning' className='p-3 fs-5 text-bg-lights' ><GrEdit /></Button>
+                                        </Col>
+                                        <Col>
+                                            <Button variant='danger' className='p-3 fs-5' onClick={() => handleOnDelete(item.id)}>
+                                                <AiFillDelete />
+                                            </Button>
+                                        </Col>
+                                    </Row>
+                                </td>
+                            </tr>
                         ))}
-                    </div>
-                    <div className="d-grid">
-                        <Button variant="primary" type="submit">
-                            Add Car
-                        </Button>
-                    </div>
-                </Form>
+                    </tbody>
+                </Table>
             </Container>
         </AdminLayout>
-    )
-}
+    );
+};
