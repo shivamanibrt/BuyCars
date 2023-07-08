@@ -3,6 +3,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../../Components/ReusableComponent/CardComponent';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsAction } from '../../Redux/Car/CarAction';
+import { motion } from 'framer-motion';
 
 export const PopularProducts = () => {
     const { car } = useSelector(state => state.car);
@@ -18,7 +19,15 @@ export const PopularProducts = () => {
     const popularCars = car.slice(0, 10);
 
     return (
-        <div>
+        <motion.div
+            initial={{ scale: 0 }}
+            animate={{ rotate: 0, scale: 1 }}
+            transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20
+            }}
+        >
             <div className='p-5'>
                 <Container>
                     <h4 className='mb-4 h4'>Popular Products</h4>
@@ -37,6 +46,6 @@ export const PopularProducts = () => {
                     </Row>
                 </Container>
             </div>
-        </div>
+        </motion.div>
     );
 };

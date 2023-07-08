@@ -14,7 +14,7 @@ export const CardComponent = ({ carModal, carImg, description, backgroundColor, 
                 </Card.Body>
             </Card>
             <div>
-                <p>{description}</p>
+                <p>{description?.slice(0, 42)}</p>
                 {price && <p>$ {price}</p>}
             </div>
         </div>
