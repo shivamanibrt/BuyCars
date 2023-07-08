@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 export const NewsLetter = () => {
     return (
-        <div className="cover-container text-light text-center p-5">
+        <div className="cover-container text-light text-center p-5 mt-5">
             <div>
                 <h5>NewsLetter</h5>
             </div>

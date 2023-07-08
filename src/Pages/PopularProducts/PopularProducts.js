@@ -32,13 +32,15 @@ export const PopularProducts = () => {
                 <Container>
                     <h4 className='mb-4 h4'>Popular Products</h4>
                     <Row className='text-align-right d-flex flex-wrap'>
-                        {popularCars.map(item => (
+                        {popularCars.map((item, i) => (
                             <Col key={item.id} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>
                                 <CardComponent
+                                    carId={item.id}
                                     carImg={item.carImg}
                                     backgroundColor={backgroundColor}
                                     carType={item.carType}
                                     price={item.carPrice}
+                                    carMake={item.carMake}
                                     description={item.description}
                                 />
                             </Col>
