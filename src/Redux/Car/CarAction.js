@@ -1,7 +1,7 @@
-import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/firebase-config";
 import { toast } from "react-toastify";
-import { setCar } from "./carSlice";
+import { setCar, setSelectedCar } from "./carSlice";
 
 // Action to get all cars
 export const getAllCarsAction = () => async (dispatch) => {
@@ -33,5 +33,20 @@ export const deleteCarAction = (id) => async (dispatch) => {
 
     } catch (error) {
         toast.error(error.message);
+    }
+}
+
+export const fetchCarbyId = (carId) => async dispatch => {
+    try {
+        const docRef = doc(db, 'Cars', carId);
+        const docSnapshot = await getDoc(docRef);
+
+        const carData = docSnapshot.data();
+        const buyingCarData = { ...carData, id: docSnapshot.id };
+
+        dispatch(setSelectedCar(buyingCarData))
+    } catch (error) {
+        toast.error(error)
+
     }
 }

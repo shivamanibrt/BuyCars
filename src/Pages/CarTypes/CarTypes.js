@@ -45,7 +45,7 @@ export const CarTypes = () => {
                     <Row className='text-align-right d-flex flex-wrap'>
                         {carModal.map((item, i) => (
                             <Col key={i} sm={6} md={4} lg={3} className='d-flex flex-wrap mb-3'>
-                                <CardComponent carModal={item.carModel} carImg={item.carImg} />
+                                <CardComponent carModel={item.carModel} carImg={item.carImg} />
                             </Col>
                         ))}
                     </Row>

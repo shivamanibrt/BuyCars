@@ -6,7 +6,7 @@ import { AiTwotoneMail } from 'react-icons/ai'
 
 export const Footer = () => {
     return (
-        <div className='p-5'>
+        <div className='p-5 mt-2'>
             <Container>
                 <Row>
                     <Col xs={12} md={6} lg={3}>
