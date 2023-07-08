@@ -47,7 +47,7 @@ export const NavigationBar = () => {
                         <Nav.Link as={Link} to="/about" >
                             ABOUT
                         </Nav.Link>
-                        <Nav.Link as={Link} to="/catagories" >
+                        <Nav.Link as={Link} to="/catgories" >
                             CATAGORIES
                         </Nav.Link>
                     </Nav>
