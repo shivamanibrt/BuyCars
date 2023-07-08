@@ -53,7 +53,7 @@ h2 {
 .card-img-filter:hover,
 .hero-img:hover {
     opacity: 1;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .cover-container {
@@ -66,6 +66,13 @@ h2 {
 }
 
 .about-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("/src/Assets/About/joey-banks-YApiWyp0lqo-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+.catagories-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
         url("/src/Assets/About/joey-banks-YApiWyp0lqo-unsplash.jpg");
     background-size: cover;
@@ -128,3 +135,23 @@ h2 {
 }
 
 /* Add your other CSS styles as needed */
+
+.btn-catagories {
+    list-style: none;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    outline: none;
+    color: #4e4feb;
+}
+
+.btn-catagories:hover {
+    background-color: #4e4feb;
+    color: white;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+.categories-p {
+    color: #4e4feb;
+}

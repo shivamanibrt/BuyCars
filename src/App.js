@@ -9,7 +9,7 @@ import { Home } from './Pages/Home/Home';
 
 import { Dashboard } from './Admin/Dashboard/Dashboard';
 import { Products } from './Admin/Products/Products';
-import { Catgories } from './Admin/Catagories/Catagories';
+import { AdminCatagories } from './Admin/Catagories/AdminCatagories';
 import { Profile } from './Admin/Profile/Profile';
 
 import { onAuthStateChanged } from 'firebase/auth';
@@ -20,6 +20,13 @@ import { auth } from './Firebase/firebase-config';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { NewCar } from './Admin/Products/NewCar';
+import { BuyCar } from './Pages/BuyCar/BuyCar';
+import { Catagories } from './Pages/Catagories/Catagories';
+import { HatchBack } from './Pages/Catagories/HatchBack/HatchBack';
+import { Suv } from './Pages/Catagories/SUV/Suv';
+import { SportsCar } from './Pages/Catagories/SportsCar/SportsCar';
+import { Sedan } from './Pages/Catagories/Sedan/Sedan';
+import { NewArrivals } from './Pages/Catagories/NewArrivals/NewArrivals';
 
 
 
@@ -42,9 +49,19 @@ function App() {
 
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<Products />} />
-          <Route path='catgories' element={<Catgories />} />
+          <Route path='adminCatgories' element={<AdminCatagories />} />
+
           <Route path='profile' element={<Profile />} />
           <Route path='newCar' element={<NewCar />} />
+          <Route path='buyCar/:carId' element={<BuyCar />} />
+
+          <Route path='catgories' element={<Catagories />} />
+          <Route path='newArrivals' element={<NewArrivals />} />
+          <Route path='hatchBack' element={<HatchBack />} />
+          <Route path='suv' element={<Suv />} />
+          <Route path='sportsCar' element={<SportsCar />} />
+          <Route path='sedan' element={<Sedan />} />
+
 
         </Routes>
         <ToastContainer />

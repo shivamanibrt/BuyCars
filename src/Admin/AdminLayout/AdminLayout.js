@@ -33,7 +33,7 @@ export const AdminLayout = ({ children }) => {
                                     </Link>
                                 </li>
                                 <li className='nav-item list-unstyled p-3'>
-                                    <Link to='/catgories' className='nav-link'>
+                                    <Link to='/adminCatgories' className='nav-link'>
                                         <AiOutlineShoppingCart size={25} /> Catagories
                                     </Link>
                                 </li>
