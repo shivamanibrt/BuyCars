@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux';
 import Image from 'react-bootstrap/Image';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
+
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../../Components/ReusableComponent/CardComponent';
+import { useParams } from 'react-router-dom';
 
 export const BuyCar = () => {
+    const { id } = useParams();
     const { selectedCar } = useSelector((state) => state.car);
     const { car } = useSelector((state) => state.car);
 
@@ -17,7 +20,7 @@ export const BuyCar = () => {
     const handleCheckout = () => {
         // Add your logic for checkout here
         // This function will be called when the checkout button is clicked
-        console.log(selectedCar);
+        console.log(id);
         // You can access the selected car details from the `selectedCar` object
     };
 
