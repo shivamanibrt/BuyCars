@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsSearch } from 'react-icons/bs';
@@ -9,12 +9,18 @@ import { signOut } from 'firebase/auth';
 import { auth } from '../Firebase/firebase-config';
 import { setUser } from '../Redux/userSlice';
 import { toast } from 'react-toastify';
+import { Cart } from '../Pages/Cart/Cart'
 
 export const NavigationBar = () => {
 
     const { user } = useSelector((state) => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
+
+    const [isCartOpen, setCartOpen] = useState(false);
+    const toggleCart = () => {
+        setCartOpen(!isCartOpen);
+    };
 
     const handleOnLogout = () => {
         signOut(auth)
@@ -74,9 +80,11 @@ export const NavigationBar = () => {
                                 <Nav.Link as={Link} to="/favourite" className="icon-link">
                                     <AiOutlineHeart />
                                 </Nav.Link>
-                                <Nav.Link as={Link} to="/cart" className="icon-link">
+                                <Nav.Link className="icon-link" onClick={() => setCartOpen(!isCartOpen)}>
                                     <AiOutlineShoppingCart />
                                 </Nav.Link>
+                                {isCartOpen && <Cart isOpen={isCartOpen} toggleCart={toggleCart} />}
+
                                 <Nav.Link as={Link} to="/login" className="icon-link">
                                     <Button variant="outline-light">Login / SignUp</Button>
                                 </Nav.Link>
