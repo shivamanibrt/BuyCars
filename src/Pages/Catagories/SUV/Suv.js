@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Catagories } from '../Catagories';
 import { CardComponent } from '../../../Components/ReusableComponent/CardComponent';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Alert, Col, Row } from 'react-bootstrap';
+import { getAllCarsAction } from '../../../Redux/Car/CarAction';
 
 export const Suv = () => {
     const { car } = useSelector(state => state.car);
+    const dispatch = useDispatch();
+
 
     // Filter the car imports to display only HatchBack cars
     const suvCars = car.filter(item => item.carType === 'SUV');
 
+    useEffect(() => {
+        dispatch(getAllCarsAction(suvCars))
+    })
     return (
         <Catagories>
             <h5 className='categories-p'>Showing {suvCars.length} Cars of {car.length} total Cars</h5>

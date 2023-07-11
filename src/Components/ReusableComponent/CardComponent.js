@@ -9,8 +9,11 @@ export const CardComponent = ({ carId, carImg, description, backgroundColor, pri
     const dispatch = useDispatch();
 
     const handleOnClick = () => {
-        dispatch(fetchCarbyId(carId));
-        navigate(`/buyCar/${carId}`);
+        if (carId) {
+            dispatch(fetchCarbyId(carId));
+            navigate(`/buyCar/${carId}`);
+        }
+        return
     };
 
     return (

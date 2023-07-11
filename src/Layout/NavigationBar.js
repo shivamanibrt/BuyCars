@@ -7,7 +7,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
 import { auth } from '../Firebase/firebase-config';
-import { setUser } from '../Redux/userSlice';
+import { setUser } from '../Redux/User/userSlice';
 import { toast } from 'react-toastify';
 import { Cart } from '../Pages/Cart/Cart'
 
@@ -68,6 +68,11 @@ export const NavigationBar = () => {
                                         <Button variant="outline-light">Dashboard</Button>
                                     </Nav.Link>
                                 )}
+                                <Nav.Link className="icon-link" onClick={() => setCartOpen(!isCartOpen)}>
+                                    <AiOutlineShoppingCart />
+                                </Nav.Link>
+                                {isCartOpen && <Cart isOpen={isCartOpen} toggleCart={toggleCart} />}
+
                                 <Nav.Link as={Link} to="/" className="icon-link">
                                     <Button variant="outline" className='btn btn-danger' onClick={handleOnLogout}>Log Out</Button>
                                 </Nav.Link>

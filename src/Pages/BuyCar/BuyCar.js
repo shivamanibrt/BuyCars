@@ -1,29 +1,32 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Image from 'react-bootstrap/Image';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../../Components/ReusableComponent/CardComponent';
+import { fetchCarbyId, getAllCarsAction } from '../../Redux/Car/CarAction';
 import { useParams } from 'react-router-dom';
+
 
 export const BuyCar = () => {
     const { id } = useParams();
     const { selectedCar } = useSelector((state) => state.car);
     const { car } = useSelector((state) => state.car);
+    const dispatch = useDispatch()
 
     // Filter similar cars based on selected car model
     const filterSelectedCar = car.filter((carItem) => carItem.carType === selectedCar.carType);
 
-    // Handle checkout
-    const handleCheckout = () => {
-        // Add your logic for checkout here
-        // This function will be called when the checkout button is clicked
-        console.log(id);
-        // You can access the selected car details from the `selectedCar` object
-    };
+    useEffect(() => {
+        dispatch(fetchCarbyId(id));
+        dispatch(getAllCarsAction(filterSelectedCar));
+    }, [dispatch, filterSelectedCar, id]);
 
+
+    const handleCheckout = () => {
+        console.log(selectedCar.carPrice);
+    };
     return (
         <div>
             <Container className='mt-5 mb-5 shadow p-5'>

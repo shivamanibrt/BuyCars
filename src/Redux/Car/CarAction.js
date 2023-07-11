@@ -36,7 +36,7 @@ export const deleteCarAction = (id) => async (dispatch) => {
     }
 }
 
-export const fetchCarbyId = (carId) => async dispatch => {
+export const fetchCarbyId = (carId) => async (dispatch) => {
     try {
         const docRef = doc(db, 'Cars', carId);
         const docSnapshot = await getDoc(docRef);
@@ -44,9 +44,11 @@ export const fetchCarbyId = (carId) => async dispatch => {
         const carData = docSnapshot.data();
         const buyingCarData = { ...carData, id: docSnapshot.id };
 
-        dispatch(setSelectedCar(buyingCarData))
-    } catch (error) {
-        toast.error(error)
+        // Store the selected car data in localStorage
+        localStorage.setItem('selectedCar', JSON.stringify(buyingCarData));
 
+        dispatch(setSelectedCar(buyingCarData));
+    } catch (error) {
+        toast.error(error);
     }
-}
+};

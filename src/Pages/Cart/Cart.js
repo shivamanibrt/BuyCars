@@ -39,7 +39,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
             exit="exit"
         >
             <div>
-                <Button className="btn-toggle" variant="warning" onClick={toggleCart}>
+                <Button className="btn-toggle" variant="danger" onClick={toggleCart}>
                     <AiOutlineClose style={{ color: 'white', fontSize: '25' }} />
                 </Button>
             </div>
@@ -53,7 +53,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
                     <li>Item 3</li>
                 </ul>
                 <div className="text-center mt-3">
-                    <Button variant="outline-dark" className="col-10">Checkout <MdOutlineShoppingCartCheckout style={{ fontSize: '25' }} /></Button>
+                    <Button variant="outline-success" className="col-10">Checkout <MdOutlineShoppingCartCheckout style={{ fontSize: '25' }} /></Button>
                 </div>
             </Container>
         </motion.div>
