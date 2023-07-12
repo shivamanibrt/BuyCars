@@ -1,19 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    cartOpen: false,
+    cart: []
 };
 
-export const userSlice = createSlice({
+export const cartSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        toggleCart: (state) => {
-            state.cartOpen = !state.cartOpen;
+        setCart: (state, action) => {
+            state.setCart = action.payload;
         },
     },
 });
 
-export const { toggleCart } = userSlice.actions;
 
-export default userSlice.reducer;
+const { reducer, actions } = cartSlice;
+export const { setCart } = actions;
+export default reducer;
