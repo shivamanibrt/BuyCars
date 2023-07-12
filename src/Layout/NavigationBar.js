@@ -68,11 +68,6 @@ export const NavigationBar = () => {
                                         <Button variant="outline-light">Dashboard</Button>
                                     </Nav.Link>
                                 )}
-                                <Nav.Link className="icon-link" onClick={() => setCartOpen(!isCartOpen)}>
-                                    <AiOutlineShoppingCart />
-                                </Nav.Link>
-                                {isCartOpen && <Cart isOpen={isCartOpen} toggleCart={toggleCart} />}
-
                                 <Nav.Link as={Link} to="/" className="icon-link">
                                     <Button variant="outline" className='btn btn-danger' onClick={handleOnLogout}>Log Out</Button>
                                 </Nav.Link>

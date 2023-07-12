@@ -5,8 +5,9 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../../Components/ReusableComponent/CardComponent';
 import { fetchCarbyId, getAllCarsAction } from '../../Redux/Car/CarAction';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { createNewCartAction } from '../../Redux/Cart/CartAction';
+import { toast } from 'react-toastify';
 
 export const BuyCar = () => {
     const { id } = useParams();
@@ -14,6 +15,7 @@ export const BuyCar = () => {
     const { car } = useSelector((state) => state.car);
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user);
+    const navigate = useNavigate()
 
     // Filter similar cars based on selected car model
     const filterSelectedCar = car.filter(
@@ -33,9 +35,14 @@ export const BuyCar = () => {
                 firstName: user.fName,
                 lastName: user?.lName,
                 carPrice: Number(selectedCar.carPrice),
+                carMake: selectedCar.carMake
             };
             console.log(cartObj);
             dispatch(createNewCartAction(cartObj))
+        }
+        else {
+            toast.error('Please login first')
+            navigate('/login')
         }
     };
 
