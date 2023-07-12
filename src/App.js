@@ -29,8 +29,6 @@ import { Sedan } from './Pages/Catagories/Sedan/Sedan';
 import { NewArrivals } from './Pages/Catagories/NewArrivals/NewArrivals';
 
 
-
-
 function App() {
   const dispatch = useDispatch();
 
@@ -45,7 +43,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='about' element={<About />} />
           <Route path='login' element={<Login />} />
+          {/* <Route path='cart' element={<Cart />} /> */}
           <Route path='signUp' element={<Signup />} />
+
 
           <Route path='dashboard' element={<Dashboard />} />
           <Route path='products' element={<Products />} />

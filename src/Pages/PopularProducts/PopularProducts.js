@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllCarsAction } from '../../Redux/Car/CarAction';
 import { motion } from 'framer-motion';
 
+
 export const PopularProducts = () => {
     const { car } = useSelector(state => state.car);
     const backgroundColor = '#F0F0F0';

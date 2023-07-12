@@ -155,3 +155,40 @@ h2 {
 .categories-p {
     color: #4e4feb;
 }
+
+/* ------ Cart ------  */
+.cart-model {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 300px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 999;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.cart-model.open {
+    display: block;
+    opacity: 1;
+}
+.cart-content {
+    width: 100%;
+    word-wrap: break-word;
+}
+
+.cart-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.cart-content li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}

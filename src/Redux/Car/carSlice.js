@@ -9,9 +9,9 @@ export const carSlice = createSlice({
     name: 'car',
     initialState,
     reducers: {
-        setCar: (state, { payload }) => {
-            if (!state.car.length && !payload.length) return;
-            state.car = payload
+        setCar: (state, action) => {
+            // if (!state.car.length && !payload.length) return;
+            state.car = action.payload
         },
         setSelectedCar: (state, action) => {
             state.selectedCar = action.payload

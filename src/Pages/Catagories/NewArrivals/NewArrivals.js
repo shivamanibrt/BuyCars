@@ -20,6 +20,7 @@ export const NewArrivals = () => {
                     sortedCars.map(item => (
                         <Col key={item.id} sm={6} md={4} lg={3} className='d-flex flex-wrap mt-4'>
                             <CardComponent
+                                carId={item.id}
                                 carImg={item.carImg}
                                 carType={item.carType}
                                 price={item.carPrice}

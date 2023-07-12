@@ -15,6 +15,7 @@ export const CarTypes = () => {
             carModel: 'Sports Car',
             carImg: sportImg,
             description: 'Hello'
+
         },
         {
             carModel: 'Hatchback',
