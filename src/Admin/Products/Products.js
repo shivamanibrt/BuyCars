@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AdminLayout } from '../AdminLayout/AdminLayout';
 import { Button, Col, Container, Row, Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -6,12 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteCarAction, getAllCarsAction } from '../../Redux/Car/CarAction';
 import { GrEdit } from 'react-icons/gr'
 import { AiFillDelete } from 'react-icons/ai'
+import { CustomModal } from '../../Pages/Custom-Modal/CustomModal';
+import { EditCar } from '../../Components/Edit-Car/EditCar';
+import { setShowModal } from '../../Redux/Modal/modalSlice';
 
 
 export const Products = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const { car } = useSelector((state) => state.car);
+
+    const [selectedCar, setSelectedCar] = useState({})
 
     useEffect(() => {
         !car.length && dispatch(getAllCarsAction());
@@ -25,13 +30,18 @@ export const Products = () => {
             dispatch(deleteCarAction(id));
         }
     }
-
+    const handleOnEdit = (obj) => {
+        setSelectedCar(obj)
+        dispatch(setShowModal(true));
+        console.log(obj)
+    }
 
     return (
         <div>
-
-
             <AdminLayout>
+                <CustomModal heading="Edit book">
+                    <EditCar selectedCar={selectedCar} />
+                </CustomModal>
                 <Container>
                     <div className='p-4 text-secondary'>
                         <h3 className='dashboard_heading'>Products</h3>
@@ -61,7 +71,7 @@ export const Products = () => {
                                             <p className='text-center text-secondary'>Car Number {i + 1}<hr /></p>
                                             <Row>
                                                 <Col className='mb-4'>
-                                                    <Button variant='warning' className='p-3 fs-5 text-bg-lights' ><GrEdit /></Button>
+                                                    <Button variant='warning' className='p-3 fs-5 text-bg-lights' onClick={() => handleOnEdit(item)}><GrEdit /></Button>
                                                 </Col>
                                                 <Col>
                                                     <Button variant='danger' className='p-3 fs-5' onClick={() => handleOnDelete(item.id)}>

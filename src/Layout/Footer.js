@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FaLocationArrow } from 'react-icons/fa'
 import { BiMobile } from 'react-icons/bi'
 import { AiTwotoneMail } from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
@@ -22,20 +23,19 @@ export const Footer = () => {
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <h5>Categories</h5>
-                        <ul className="list-unstyled text-secondary">
-                            <li>Hatchback</li>
-                            <li>SUV</li>
-                            <li>Sports Car</li>
-                            <li>Sedan</li>
+                        <ul className="list-unstyled ">
+                            <li><Link to='/hatchback' className="text-decoration-none text-secondary">Hatchback</Link></li>
+                            <li><Link to='/suv' className="text-decoration-none text-secondary">SUV</Link></li>
+                            <li><Link to='/sportsCar' className="text-decoration-none text-secondary">Sports Car</Link></li>
+                            <li><Link to='/sedan' className="text-decoration-none text-secondary">Sedan</Link></li>
                         </ul>
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <h5>Pages</h5>
-                        <ul className="list-unstyled text-secondary">
-                            <li>Home</li>
-                            <li>About</li>
-                            <li>Categories</li>
-                            <li>Privacy Policy</li>
+                        <ul className="list-unstyled ">
+                            <li><Link to='/' className="text-decoration-none text-secondary">Home</Link></li>
+                            <li><Link to='/about' className="text-decoration-none text-secondary">About</Link></li>
+                            <li><Link to='/catgories' className="text-decoration-none text-secondary">Catagories</Link></li>
                         </ul>
                     </Col>
                 </Row>

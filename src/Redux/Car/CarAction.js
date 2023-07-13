@@ -1,7 +1,8 @@
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, setDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebase-config";
 import { toast } from "react-toastify";
 import { setCar, setSelectedCar } from "./carSlice";
+import { setShowModal } from "../Modal/modalSlice";
 
 // Action to get all cars
 export const getAllCarsAction = () => async (dispatch) => {
@@ -52,3 +53,14 @@ export const fetchCarbyId = (carId) => async (dispatch) => {
         toast.error(error);
     }
 };
+
+export const updateCarDetail = (id, updateData) => async (dispatch) => {
+    try {
+        await setDoc(doc(db, 'Cars', id), updateData, { merge: true });
+        toast.success('Car Detail Updated');
+        dispatch(getAllCarsAction());
+        dispatch(setShowModal(false));
+    } catch (error) {
+        toast.error(error.message);
+    }
+}
