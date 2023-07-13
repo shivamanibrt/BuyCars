@@ -2,8 +2,17 @@ import React from 'react';
 import { Icons } from '../../Icons/Icons';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 export const NewsLetter = () => {
+    const handelOnClick = () => {
+        try {
+            // alert('You are subscribed ')
+        } catch (error) {
+            toast.error(error.message)
+
+        }
+    }
     return (
         <div className="cover-container text-light text-center p-5 mt-5">
             <div>
@@ -22,7 +31,7 @@ export const NewsLetter = () => {
                         </div>
                         <div className="col-lg-5 col-md-12">
                             <div className="d-grid">
-                                <Button variant="primary" style={{ borderRadius: '0' }} className="mobile-button">Subscribe</Button>
+                                <Button variant="primary" style={{ borderRadius: '0' }} className="mobile-button" onClick={handelOnClick} >Subscribe</Button>
                             </div>
                         </div>
                     </div>

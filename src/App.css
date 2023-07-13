@@ -165,7 +165,8 @@ h2 {
     border: none;
     outline: none;
     cursor: pointer;
-    width: 300px;
+    width: 390px;
+    /* width: 80%; */
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -191,4 +192,16 @@ h2 {
 .cart-content li {
     margin-bottom: 8px;
     font-size: 16px;
+}
+.btn-increase:hover,
+.btn-decrease:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.footer {
+    background-image: url("/src/Assets/Footer/wave.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
 }

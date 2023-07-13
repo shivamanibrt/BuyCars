@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../../Firebase/firebase-config";
 import { toast } from "react-toastify";
 import { setCart } from "./cartSlice";
@@ -25,3 +25,12 @@ export const createNewCartAction = (cartObj) => async (dispatch) => {
         toast.error(error.message);
     }
 };
+
+export const deleteCartItemAction = (id) => async (dispatch) => {
+    try {
+        await deleteDoc(doc(db, 'Cart', id))
+        dispatch(getAllCartAction())
+    } catch (error) {
+        toast.error(error.message)
+    }
+}

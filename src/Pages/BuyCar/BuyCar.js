@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Image from 'react-bootstrap/Image';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { CardComponent } from '../../Components/ReusableComponent/CardComponent';
 import { fetchCarbyId, getAllCarsAction } from '../../Redux/Car/CarAction';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { createNewCartAction } from '../../Redux/Cart/CartAction';
+import { toast } from 'react-toastify';
+import { Icons } from '../../Icons/Icons';
 
 export const BuyCar = () => {
     const { id } = useParams();
@@ -14,16 +16,29 @@ export const BuyCar = () => {
     const { car } = useSelector((state) => state.car);
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user);
+    const navigate = useNavigate();
+
+    const [quantity, setQuantity] = useState(1);
+
+    useEffect(() => {
+        dispatch(fetchCarbyId(id));
+        dispatch(getAllCarsAction(filterSelectedCar));
+    }, [dispatch, id,]);
 
     // Filter similar cars based on selected car model
     const filterSelectedCar = car.filter(
         (carItem) => carItem.carType === selectedCar.carType
     );
 
-    useEffect(() => {
-        dispatch(fetchCarbyId(id));
-        dispatch(getAllCarsAction(filterSelectedCar));
-    }, [dispatch, filterSelectedCar, id]);
+    const handleDecrease = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
+    };
+
+    const handleIncrease = () => {
+        setQuantity(quantity + 1);
+    };
 
     const handleCheckout = () => {
         if (user?.uid) {
@@ -32,10 +47,15 @@ export const BuyCar = () => {
                 carId: selectedCar.id,
                 firstName: user.fName,
                 lastName: user?.lName,
-                carPrice: Number(selectedCar.carPrice),
+                carPrice: Number(selectedCar.carPrice * quantity),
+                carMake: selectedCar.carMake,
+                quantity: quantity
             };
             console.log(cartObj);
-            dispatch(createNewCartAction(cartObj))
+            dispatch(createNewCartAction(cartObj));
+        } else {
+            toast.error('Please login first');
+            navigate('/login');
         }
     };
 
@@ -54,12 +74,31 @@ export const BuyCar = () => {
                         <Col xs={12} md={6} lg={8} className="d-flex align-items-center mt-3">
                             <div className="p-4 border">
                                 <p>{selectedCar.carMake}</p>
-                                <p>{selectedCar.carType}</p>
                                 <p>$ {selectedCar.carPrice}</p>
                                 <p>{selectedCar.description}</p>
-                                <Button className="w-100" onClick={handleCheckout}>
-                                    <AiOutlineShoppingCart size={25} /> Add to cart
-                                </Button>
+                                <div className="d-flex flex-wrap align-items-center justify-content-start ">
+                                    <div className="d-flex border gap-2" >
+                                        <div className="border-end p-2 btn-decrease" onClick={handleDecrease}>-</div>
+                                        <div className="p-2">{quantity}</div>
+                                        <div className="border-start p-2 btn-increase" onClick={handleIncrease}>+</div>
+                                    </div>
+                                    {" "}
+                                    <div className='ms-2 '>
+                                        <Button onClick={handleCheckout}>
+                                            <AiOutlineShoppingCart size={25} /> Add to cart
+                                        </Button>
+                                    </div>
+                                </div>
+
+                                <p className='mt-2' ><strong>Category: </strong>{selectedCar.carType}</p>
+                                <div>
+                                    <Row>
+                                        <p style={{ display: 'flex', alignItems: 'center' }}>
+                                            <span style={{ marginRight: '5px' }}><strong>Share</strong>:</span>
+                                            <Icons />
+                                        </p>
+                                    </Row>
+                                </div>
                             </div>
                         </Col>
                     </Row>
