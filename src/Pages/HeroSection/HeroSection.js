@@ -11,7 +11,7 @@ export const HeroSection = () => {
                 <Container className="p-5 herosection_container">
                     <Row className="align-items-center justify-content-center">
                         <Col xs={12} lg={6} className="align-items-center mt-3">
-                            <h1>Hola {user?.fName}!</h1>
+                            <h1>Hello {user?.fName}!</h1>
                             <p>
                                 Welcome to our Car dealership! Browse through our collection of luxury sport, sedan, and hatchback cars
                                 and find the perfect model to fulfill your dreams of speed and elegance.

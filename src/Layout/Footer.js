@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 export const Footer = () => {
     return (
-        <div className='p-5 mt-2'>
+        <div className='p-5 mt-2 footer'>
             <Container>
                 <Row>
                     <Col xs={12} md={6} lg={3}>
