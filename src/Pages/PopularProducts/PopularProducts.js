@@ -17,7 +17,7 @@ export const PopularProducts = () => {
     }, [dispatch]);
 
     // Get the first 10 car items
-    const popularCars = car.slice(0, 10);
+    const popularCars = car.slice(0, 8);
 
     return (
         <motion.div
