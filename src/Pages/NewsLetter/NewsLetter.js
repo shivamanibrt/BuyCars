@@ -37,6 +37,7 @@ export const NewsLetter = () => {
                     </div>
                 </Form>
             </div >
+
             <div>
                 <h5>Follow our Social media</h5>
                 <Icons />

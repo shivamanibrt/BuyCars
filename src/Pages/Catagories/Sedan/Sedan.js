@@ -10,7 +10,7 @@ export const Sedan = () => {
     const dispatch = useDispatch();
 
     // Filter the car imports to display only HatchBack cars
-    const sedanCars = car.filter(item => item.carType === 'Sedan Car');
+    const sedanCars = car.filter(item => item.carType === 'Sedan');
     useEffect(() => {
         dispatch(getAllCarsAction(sedanCars))
     })

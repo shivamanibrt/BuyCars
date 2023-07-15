@@ -17,13 +17,16 @@ export const BuyCar = () => {
     const dispatch = useDispatch();
     const { user } = useSelector((state) => state.user);
     const navigate = useNavigate();
+    const backgroundColor = '#F0F0F0';
+
 
     const [quantity, setQuantity] = useState(1);
 
     useEffect(() => {
         dispatch(fetchCarbyId(id));
         dispatch(getAllCarsAction(filterSelectedCar));
-    }, [dispatch, id,]);
+    },);
+
 
     // Filter similar cars based on selected car model
     const filterSelectedCar = car.filter(
@@ -49,9 +52,10 @@ export const BuyCar = () => {
                 lastName: user?.lName,
                 carPrice: Number(selectedCar.carPrice * quantity),
                 carMake: selectedCar.carMake,
-                quantity: quantity
+                quantity: quantity,
+                carImg: selectedCar.carImg
             };
-            console.log(cartObj);
+
             dispatch(createNewCartAction(cartObj));
         } else {
             toast.error('Please login first');
@@ -61,34 +65,39 @@ export const BuyCar = () => {
 
     return (
         <div>
-            <Container className="mt-5 mb-5 shadow p-5">
+            <Container className="mt-5 mb-5 p-5">
                 <div>
+
                     <Row className="align-items-center">
-                        <Col xs={12} md={6} lg={4}>
-                            <Image
-                                src={selectedCar.carImg}
-                                alt={selectedCar.carModal}
-                                style={{ width: '100%' }}
-                            />
+                        <Col xs={12} md={6} lg={4} >
+                            <div style={{ background: backgroundColor, height: '300px' }}>
+                                <Image
+                                    className='buycar-img'
+                                    src={selectedCar.carImg}
+                                    alt={selectedCar.carModal}
+                                    style={{ width: '100%' }}
+                                />
+                            </div>
                         </Col>
-                        <Col xs={12} md={6} lg={8} className="d-flex align-items-center mt-3">
-                            <div className="p-4 border">
-                                <p>{selectedCar.carMake}</p>
-                                <p>$ {selectedCar.carPrice}</p>
+                        <Col xs={10} md={6} lg={6} className="d-flex align-items-center mt-3">
+                            <div className="p-2 ">
+                                <p><strong>{selectedCar.carMake}</strong></p>
+                                <p><strong>$ {selectedCar.carPrice}</strong></p>
                                 <p>{selectedCar.description}</p>
                                 <div className="d-flex flex-wrap align-items-center justify-content-start ">
-                                    <div className="d-flex border gap-2" >
+                                    <div className="d-flex border me-2 gap-2">
                                         <div className="border-end p-2 btn-decrease" onClick={handleDecrease}>-</div>
                                         <div className="p-2">{quantity}</div>
                                         <div className="border-start p-2 btn-increase" onClick={handleIncrease}>+</div>
                                     </div>
                                     {" "}
-                                    <div className='ms-2 '>
+                                    <div>
                                         <Button onClick={handleCheckout}>
                                             <AiOutlineShoppingCart size={25} /> Add to cart
                                         </Button>
                                     </div>
                                 </div>
+                                <hr />
 
                                 <p className='mt-2' ><strong>Category: </strong>{selectedCar.carType}</p>
                                 <div>
@@ -105,12 +114,13 @@ export const BuyCar = () => {
                 </div>
             </Container>
             <Container>
-                <h4 className="mb-4 h4">Similar Products</h4>
+                <h4 className="mb-4 h4">Related Products</h4>
                 <Row className="text-align-right d-flex flex-wrap">
                     {filterSelectedCar.map((item, i) => (
                         <Col key={item.id} sm={6} md={4} lg={3} className="d-flex flex-wrap mt-4">
                             <CardComponent
                                 carId={item.id}
+                                backgroundColor={backgroundColor}
                                 carImg={item.carImg}
                                 carType={item.carType}
                                 price={item.carPrice}

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Button, Card, Col, Container, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { MdOutlineShoppingCartCheckout } from 'react-icons/md';
 import { AiFillDelete, AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,6 +12,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
     const { user } = useSelector(state => state.user);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const backgroundColor = '#F0F0F0';
 
     useEffect(() => {
         const handleKeyDown = event => {
@@ -67,61 +68,79 @@ export const Cart = ({ isOpen, toggleCart }) => {
             animate={isOpen ? 'visible' : 'hidden'}
             exit="exit"
         >
-            <div>
-                <Button className="btn-toggle" variant="danger" onClick={toggleCart}>
-                    <AiOutlineClose style={{ color: 'white', fontSize: '25' }} />
-                </Button>
-            </div>
-            {user?.uid ? (
-                <Container className="cart-content mt-4">
-                    <h3>Items in Cart</h3>
-                    {userCart.length > 0 ? (
-                        <ul className="list-unstyled">
-                            {userCart.map((item, i) => (
-                                <li key={i}>
-                                    <Row>
-                                        <Col>{item.carMake}</Col>
-                                        <Col>$ {item.carPrice}</Col>
-                                        <Col>
-                                            <Button variant="warning" onClick={() => handleOnDelete(item.id)}>
-                                                <AiFillDelete />
-                                            </Button>
+            <div className='cart-content'>
+                <Row>
+                    <Col><strong>SHOPPING CART</strong></Col>
+                    <Col>
+                        <div onClick={toggleCart} className="btn-toggle text-secondary">
+                            <div style={{ fontSize: '16px' }} >
+                                <AiOutlineClose className="btn-close me-2" />CLOSE
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+                <hr />
+                {user?.uid ? (
+                    <Container>
+                        {userCart.length > 0 ? (
+                            <ul className="list-unstyled">
+                                {userCart.map((item, i) => (
+                                    <li key={i}>
+                                        <Col className='me-2' style={{ minWidth: '150px' }}>
+                                            <div className="d-flex align-items-center">
+                                                <div style={{ background: backgroundColor, padding: '5px' }}>
+                                                    <Image src={item.carImg} alt='Car' fluid style={{ width: '100%', maxWidth: '50px' }} />
+                                                </div>
+                                                <div className="ms-2">
+                                                    <div>{item.carMake}</div>
+                                                    <div style={{ color: '#4e4feb' }}>$ {item.carPrice}</div>
+                                                </div>
+                                                <div className="ms-auto">
+                                                    <Button variant="warning" onClick={() => handleOnDelete(item.id)}>
+                                                        <AiFillDelete />
+                                                    </Button>
+                                                </div>
+                                            </div>
                                         </Col>
-                                    </Row>
-                                </li>
-                            ))}
-                        </ul>
-                    ) : (
-                        <p>Item in cart is blank</p>
-                    )}
-                    <div className="text-center mt-3">
-                        <Row className="mb-3">
-                            <Col>Total</Col>
-                            <Col>${totalPrice}</Col>
-                            <Col></Col>
-                        </Row>
-                        <Button variant="outline-dark" className="col-12 p-2">
-                            Checkout <MdOutlineShoppingCartCheckout style={{ fontSize: '25' }} />
-                        </Button>
-                    </div>
-                </Container>
-            ) : (
-                <Card style={{}} className="mt-4 p-2 shadow-lg">
-                    <Card.Body>
-                        <Card.Title>
-                            <h3>No user found</h3>
-                        </Card.Title>
-                        <Card.Text>
-                            <p>Please login to view the cart and order cars.</p>
-                        </Card.Text>
-                        <Row>
-                            <Button onClick={handleOnLogin} className="p-2">
-                                Login
-                            </Button>
-                        </Row>
-                    </Card.Body>
-                </Card>
-            )}
-        </motion.div>
+
+                                    </li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p>Item in cart is blank</p>
+                        )}
+
+                        <div className="checkout-button">
+                            <hr />
+                            <Row className='mb-3'>
+                                <Col><strong>SUBTOTAL :</strong> </Col>
+                                <Col style={{ color: '#4e4feb' }}>${totalPrice}</Col>
+                            </Row>
+                            <Row>
+                                <Button style={{ background: '#4e4feb', }}>
+                                    Checkout
+                                </Button>
+                            </Row>
+                        </div>
+                    </Container>
+                ) : (
+                    <Card style={{}} className="mt-4 p-2 shadow-lg">
+                        <Card.Body>
+                            <Card.Title>
+                                <h3>No user found</h3>
+                            </Card.Title>
+                            <Card.Text>
+                                <p>Please login to view the cart and order cars.</p>
+                            </Card.Text>
+                            <Row>
+                                <Button onClick={handleOnLogin} className="p-2">
+                                    Login
+                                </Button>
+                            </Row>
+                        </Card.Body>
+                    </Card>
+                )}
+            </div>
+        </motion.div >
     );
 };

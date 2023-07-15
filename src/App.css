@@ -44,16 +44,18 @@ h2 {
 }
 
 .card-img-filter,
-.hero-img {
+.hero-img,
+.buycar-img {
     width: 100%;
-    transform: scale(1);
+    transform: scale(0.9);
     transition: transform 0.5s;
 }
 
 .card-img-filter:hover,
-.hero-img:hover {
+.hero-img:hover,
+.buycar-img:hover {
     opacity: 1;
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .cover-container {
@@ -165,11 +167,11 @@ h2 {
     border: none;
     outline: none;
     cursor: pointer;
-    width: 390px;
+    width: 340px;
     /* width: 80%; */
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 15px;
     z-index: 999;
     display: none;
     transition: opacity 0.3s ease-in-out;
@@ -182,10 +184,13 @@ h2 {
 .cart-content {
     width: 100%;
     word-wrap: break-word;
+    font-size: 18px;
+    /* position: relative; */
+    min-height: 100vh;
 }
 
 .cart-content h3 {
-    font-size: 20px;
+    font-size: 15px;
     margin-bottom: 10px;
 }
 
@@ -193,15 +198,18 @@ h2 {
     margin-bottom: 8px;
     font-size: 16px;
 }
-.btn-increase:hover,
-.btn-decrease:hover {
-    background-color: #f0f0f0;
-    cursor: pointer;
+
+.checkout-button {
+    position: absolute;
+    bottom: 10px;
+    width: 280px;
+    /* left: 100%; */
+    /* transform: translateX(-100%); */
 }
 
-.footer {
-    background-image: url("/src/Assets/Footer/wave.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
+.btn-increase:hover,
+.btn-decrease:hover,
+.btn-close:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
 }
