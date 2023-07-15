@@ -203,8 +203,6 @@ h2 {
     position: absolute;
     bottom: 10px;
     width: 280px;
-    /* left: 100%; */
-    /* transform: translateX(-100%); */
 }
 
 .btn-increase:hover,

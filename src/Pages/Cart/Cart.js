@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
-import { Button, Card, Col, Container, Image, Row } from 'react-bootstrap';
-import { MdOutlineShoppingCartCheckout } from 'react-icons/md';
+import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import { AiFillDelete, AiOutlineClose } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteCartItemAction, getAllCartAction } from '../../Redux/Cart/CartAction';
@@ -123,22 +122,18 @@ export const Cart = ({ isOpen, toggleCart }) => {
                             </Row>
                         </div>
                     </Container>
+
                 ) : (
-                    <Card style={{}} className="mt-4 p-2 shadow-lg">
-                        <Card.Body>
-                            <Card.Title>
-                                <h3>No user found</h3>
-                            </Card.Title>
-                            <Card.Text>
-                                <p>Please login to view the cart and order cars.</p>
-                            </Card.Text>
-                            <Row>
-                                <Button onClick={handleOnLogin} className="p-2">
-                                    Login
-                                </Button>
-                            </Row>
-                        </Card.Body>
-                    </Card>
+                    <div className="mt-4 p-2">
+                        <h4><strong> No user found</strong></h4>
+                        <p>Please login to view the cart and order cars.</p>
+                        <Row>
+                            <Button onClick={handleOnLogin} className="p-2 mt-5" style={{ background: '#4e4feb' }}>
+                                Login
+                            </Button>
+                        </Row>
+
+                    </div>
                 )}
             </div>
         </motion.div >

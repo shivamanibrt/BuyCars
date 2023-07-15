@@ -70,7 +70,7 @@ export const BuyCar = () => {
 
                     <Row className="align-items-center">
                         <Col xs={12} md={6} lg={4} >
-                            <div style={{ background: backgroundColor, height: '300px' }}>
+                            <div style={{ background: backgroundColor, height: '350px' }}>
                                 <Image
                                     className='buycar-img'
                                     src={selectedCar.carImg}
@@ -82,7 +82,7 @@ export const BuyCar = () => {
                         <Col xs={10} md={6} lg={6} className="d-flex align-items-center mt-3">
                             <div className="p-2 ">
                                 <p><strong>{selectedCar.carMake}</strong></p>
-                                <p><strong>$ {selectedCar.carPrice}</strong></p>
+                                <p style={{ color: '#4e4feb' }}><strong>$ {selectedCar.carPrice}</strong></p>
                                 <p>{selectedCar.description}</p>
                                 <div className="d-flex flex-wrap align-items-center justify-content-start ">
                                     <div className="d-flex border me-2 gap-2">
@@ -92,7 +92,7 @@ export const BuyCar = () => {
                                     </div>
                                     {" "}
                                     <div>
-                                        <Button onClick={handleCheckout}>
+                                        <Button onClick={handleCheckout} style={{ background: '#4e4feb' }}>
                                             <AiOutlineShoppingCart size={25} /> Add to cart
                                         </Button>
                                     </div>

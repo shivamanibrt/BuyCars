@@ -26,7 +26,7 @@ export const CardComponent = ({ carId, carImg, description, backgroundColor, pri
             </Card>
             <div className='mb-4'>
                 <p>{carMake}{description?.slice(0, 42)}</p>
-                {price && <p>$ {price}</p>}
+                {price && <p style={{ color: '#4e4feb' }}>$ {price}</p>}
             </div>
         </div>
     );

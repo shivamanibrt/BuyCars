@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 export const NewsLetter = () => {
     const handelOnClick = () => {
         try {
-            // alert('You are subscribed ')
+            toast.success('You are subscribed ')
         } catch (error) {
             toast.error(error.message)
 
@@ -31,7 +31,7 @@ export const NewsLetter = () => {
                         </div>
                         <div className="col-lg-5 col-md-12">
                             <div className="d-grid">
-                                <Button variant="primary" style={{ borderRadius: '0' }} className="mobile-button" onClick={handelOnClick} >Subscribe</Button>
+                                <Button variant="primary" style={{ borderRadius: '0', backgroundColor: '#4e4feb' }} className="mobile-button" onClick={handelOnClick} >Subscribe</Button>
                             </div>
                         </div>
                     </div>
