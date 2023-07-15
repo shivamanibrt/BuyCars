@@ -2,9 +2,17 @@ import React from 'react';
 import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import HeroSectionImg from '../../Assets/Hero Section/top-car-view-png-34863.png'
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 export const HeroSection = () => {
     const { user } = useSelector(state => state.user)
+    const navigate = useNavigate()
+    const handelOnReadMore = () => {
+        navigate('/about')
+    }
+    const handelOnShopNow = () => {
+        navigate('/catgories')
+    }
     return (
         <div className="main">
             <div className='hero_section text-white'>
@@ -17,10 +25,10 @@ export const HeroSection = () => {
                                 and find the perfect model to fulfill your dreams of speed and elegance.
                             </p>
                             <div className='d-flex gap-2'>
-                                <Button variant="outline-light" style={{ borderRadius: '0' }}>
+                                <Button variant="outline-light" style={{ borderRadius: '0' }} onClick={handelOnReadMore}>
                                     READ MORE
                                 </Button>
-                                <Button variant="light" style={{ borderRadius: '0' }}>
+                                <Button variant="light" style={{ borderRadius: '0' }} onClick={handelOnShopNow}>
                                     SHOP NOW
                                 </Button>
                             </div>
