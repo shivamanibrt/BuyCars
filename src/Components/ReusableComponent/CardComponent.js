@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { fetchCarbyId } from '../../Redux/Car/CarAction';
 
-export const CardComponent = ({ carId, carImg, description, backgroundColor, price, carMake, carModel }) => {
+export const CardComponent = ({ carId, carImg, description, backgroundColor, price, carMake, carModel, onClick }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -13,7 +13,9 @@ export const CardComponent = ({ carId, carImg, description, backgroundColor, pri
             dispatch(fetchCarbyId(carId));
             navigate(`/buyCar/${carId}`);
         }
-        return
+        if (onClick) {
+            onClick();
+        }
     };
 
     return (

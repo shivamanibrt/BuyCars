@@ -6,6 +6,12 @@ import { AiTwotoneMail } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 
 export const Footer = () => {
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }
     return (
         <div className='p-5 mt-2'>
             <Container>
@@ -24,18 +30,18 @@ export const Footer = () => {
                     <Col xs={12} md={6} lg={3}>
                         <h5>Categories</h5>
                         <ul className="list-unstyled ">
-                            <li><Link to='/hatchback' className="text-decoration-none text-secondary">Hatchback</Link></li>
-                            <li><Link to='/suv' className="text-decoration-none text-secondary">SUV</Link></li>
-                            <li><Link to='/sportsCar' className="text-decoration-none text-secondary">Sports Car</Link></li>
+                            <li><Link to='/hatchback' className="text-decoration-none text-secondary" onClick={scrollToTop}>Hatchback</Link></li>
+                            <li><Link to='/suv' className="text-decoration-none text-secondary" onClick={scrollToTop}>SUV</Link></li>
+                            <li><Link to='/sportsCar' className="text-decoration-none text-secondary" onClick={scrollToTop}>Sports Car</Link></li>
                             <li><Link to='/sedan' className="text-decoration-none text-secondary">Sedan</Link></li>
                         </ul>
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <h5>Pages</h5>
                         <ul className="list-unstyled ">
-                            <li><Link to='/' className="text-decoration-none text-secondary">Home</Link></li>
-                            <li><Link to='/about' className="text-decoration-none text-secondary">About</Link></li>
-                            <li><Link to='/catgories' className="text-decoration-none text-secondary">Catagories</Link></li>
+                            <li><Link to='/' className="text-decoration-none text-secondary" onClick={scrollToTop}>Home</Link></li>
+                            <li><Link to='/about' className="text-decoration-none text-secondary" onClick={scrollToTop}>About</Link></li>
+                            <li><Link to='/catgories' className="text-decoration-none text-secondary" onClick={scrollToTop}>Catagories</Link></li>
                         </ul>
                     </Col>
                 </Row>
@@ -48,4 +54,4 @@ export const Footer = () => {
     );
 };
 
-export default Footer;
+
