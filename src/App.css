@@ -202,8 +202,8 @@ h2 {
 .btn-checkout,
 .btn-login {
     position: absolute;
-    bottom: 10px;
-    width: 280px;
+    bottom: 2%;
+    width: 85%;
 }
 
 .btn-increase:hover,
@@ -211,4 +211,12 @@ h2 {
 .btn-close:hover {
     background-color: #f0f0f0;
     cursor: pointer;
+}
+.li-footer {
+    color: #888888;
+    text-transform: uppercase;
+}
+.li-footer:hover {
+    color: black;
+    transition: all 0.3s;
 }

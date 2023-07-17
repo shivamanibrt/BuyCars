@@ -57,6 +57,11 @@ export const Cart = ({ isOpen, toggleCart }) => {
         navigate('./login');
     };
 
+    const handelOnCheckout = () => {
+        console.log("Checkout")
+    };
+
+
     const userCart = cart.filter(item => item.userId === user?.uid);
 
     return (
@@ -117,7 +122,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
                             </Row>
                             <hr />
                             <Row>
-                                <Button style={{ background: '#4e4feb', borderRadius: '0' }}>
+                                <Button style={{ background: '#4e4feb', borderRadius: '0' }} onClick={handelOnCheckout}>
                                     Checkout
                                 </Button>
                             </Row>
