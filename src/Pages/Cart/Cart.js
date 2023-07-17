@@ -109,7 +109,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
                             <p>Item in cart is blank</p>
                         )}
 
-                        <div className="checkout-button">
+                        <div className="btn-checkout">
                             <hr />
                             <Row className='mb-3'>
                                 <Col><strong>SUBTOTAL :</strong> </Col>
@@ -122,13 +122,12 @@ export const Cart = ({ isOpen, toggleCart }) => {
                             </Row>
                         </div>
                     </Container>
-
                 ) : (
                     <div className="mt-4 p-2">
                         <h4><strong> No user found</strong></h4>
                         <p>Please login to view the cart and order cars.</p>
                         <Row>
-                            <Button onClick={handleOnLogin} className="p-2 mt-5" style={{ background: '#4e4feb' }}>
+                            <Button onClick={handleOnLogin} className="p-2 mt-5 btn-login" style={{ background: '#4e4feb' }}>
                                 Login
                             </Button>
                         </Row>

@@ -15,6 +15,12 @@ export const PopularProducts = () => {
     useEffect(() => {
         dispatch(getAllCarsAction());
     }, [dispatch]);
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }
 
     // Get the first 10 car items
     const popularCars = car.slice(0, 8);
@@ -43,6 +49,7 @@ export const PopularProducts = () => {
                                     price={item.carPrice}
                                     carMake={item.carMake}
                                     description={item.description}
+                                    onClick={scrollToTop}
                                 />
                             </Col>
                         ))}

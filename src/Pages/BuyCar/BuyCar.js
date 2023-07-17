@@ -26,7 +26,12 @@ export const BuyCar = () => {
         dispatch(fetchCarbyId(id));
         dispatch(getAllCarsAction(filterSelectedCar));
     },);
-
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    }
 
     // Filter similar cars based on selected car model
     const filterSelectedCar = car.filter(
@@ -84,8 +89,8 @@ export const BuyCar = () => {
                                 <p><strong>{selectedCar.carMake}</strong></p>
                                 <p style={{ color: '#4e4feb' }}><strong>$ {selectedCar.carPrice}</strong></p>
                                 <p>{selectedCar.description}</p>
-                                <div className="d-flex flex-wrap align-items-center justify-content-start ">
-                                    <div className="d-flex border me-2 gap-2">
+                                <div className="d-flex flex-wrap align-items-center justify-content-start mt-1">
+                                    <div className="d-flex border me-1">
                                         <div className="border-end p-2 btn-decrease" onClick={handleDecrease}>-</div>
                                         <div className="p-2">{quantity}</div>
                                         <div className="border-start p-2 btn-increase" onClick={handleIncrease}>+</div>
@@ -126,6 +131,7 @@ export const BuyCar = () => {
                                 price={item.carPrice}
                                 carMake={item.carMake}
                                 description={item.description}
+                                onClick={scrollToTop}
                             />
                         </Col>
                     ))}

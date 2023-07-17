@@ -11,7 +11,7 @@ h4 {
 }
 
 h1 {
-    font-size: 5rem !important;
+    font-size: 4.9rem !important;
 }
 
 h2 {
@@ -199,7 +199,8 @@ h2 {
     font-size: 16px;
 }
 
-.checkout-button {
+.btn-checkout,
+.btn-login {
     position: absolute;
     bottom: 10px;
     width: 280px;
