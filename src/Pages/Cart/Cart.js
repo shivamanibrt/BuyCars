@@ -57,6 +57,11 @@ export const Cart = ({ isOpen, toggleCart }) => {
         navigate('./login');
     };
 
+    const handelOnCheckout = () => {
+        console.log("Checkout")
+    };
+
+
     const userCart = cart.filter(item => item.userId === user?.uid);
 
     return (
@@ -95,7 +100,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
                                                     <div style={{ color: '#4e4feb' }}>$ {item.carPrice}</div>
                                                 </div>
                                                 <div className="ms-auto">
-                                                    <Button variant="warning" onClick={() => handleOnDelete(item.id)}>
+                                                    <Button variant="warning" onClick={() => handleOnDelete(item.id)} style={{ borderRadius: '0' }}>
                                                         <AiFillDelete />
                                                     </Button>
                                                 </div>
@@ -109,14 +114,15 @@ export const Cart = ({ isOpen, toggleCart }) => {
                             <p>Item in cart is blank</p>
                         )}
 
-                        <div className="btn-checkout">
+                        <div className="btn-checkout ">
                             <hr />
                             <Row className='mb-3'>
                                 <Col><strong>SUBTOTAL :</strong> </Col>
                                 <Col style={{ color: '#4e4feb' }}>${totalPrice}</Col>
                             </Row>
+                            <hr />
                             <Row>
-                                <Button style={{ background: '#4e4feb', }}>
+                                <Button style={{ background: '#4e4feb', borderRadius: '0' }} onClick={handelOnCheckout}>
                                     Checkout
                                 </Button>
                             </Row>

@@ -97,7 +97,7 @@ export const BuyCar = () => {
                                     </div>
                                     {" "}
                                     <div>
-                                        <Button onClick={handleCheckout} style={{ background: '#4e4feb' }}>
+                                        <Button onClick={handleCheckout} style={{ background: '#4e4feb', borderRadius: '0' }}>
                                             <AiOutlineShoppingCart size={25} /> Add to cart
                                         </Button>
                                     </div>
