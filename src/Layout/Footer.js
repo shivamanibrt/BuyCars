@@ -29,11 +29,11 @@ export const Footer = () => {
                     </Col>
                     <Col xs={12} md={6} lg={3}>
                         <h5>Categories</h5>
-                        <ul className="list-unstyled ">
-                            <li><Link to='/hatchback' className="text-decoration-none text-secondary" onClick={scrollToTop}>Hatchback</Link></li>
-                            <li><Link to='/suv' className="text-decoration-none text-secondary" onClick={scrollToTop}>SUV</Link></li>
-                            <li><Link to='/sportsCar' className="text-decoration-none text-secondary" onClick={scrollToTop}>Sports Car</Link></li>
-                            <li><Link to='/sedan' className="text-decoration-none text-secondary">Sedan</Link></li>
+                        <ul className="list-unstyled li-footer ">
+                            <li><Link to='/hatchback' className="text-decoration-none text-secondary li-footer" onClick={scrollToTop}>Hatchback</Link></li>
+                            <li><Link to='/suv' className="text-decoration-none text-secondary li-footer" onClick={scrollToTop}>SUV</Link></li>
+                            <li><Link to='/sportsCar' className="text-decoration-none text-secondary li-footer" onClick={scrollToTop}>Sports Car</Link></li>
+                            <li><Link to='/sedan' className="text-decoration-none text-secondary li-footer">Sedan</Link></li>
                         </ul>
                     </Col>
                     <Col xs={12} md={6} lg={3}>

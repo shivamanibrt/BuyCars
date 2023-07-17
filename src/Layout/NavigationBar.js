@@ -69,12 +69,12 @@ export const NavigationBar = () => {
                                 {isCartOpen && <Cart isOpen={isCartOpen} toggleCart={toggleCart} />}
                                 {user?.role === 'admin' && (
                                     <Nav.Link as={Link} to="/dashboard" className="icon-link">
-                                        <Button variant="outline-light">Dashboard</Button>
+                                        <Button variant="outline-light" style={{ borderRadius: '0' }}>Dashboard</Button>
                                     </Nav.Link>
                                 )}
 
                                 <Nav.Link as={Link} to="/" className="icon-link">
-                                    <Button variant="outline" className='btn btn-danger' onClick={handleOnLogout}>Log Out</Button>
+                                    <Button variant="outline" style={{ borderRadius: '0' }} className='btn btn-danger' onClick={handleOnLogout}>Log Out</Button>
                                 </Nav.Link>
                             </>
                         ) : (
@@ -90,7 +90,7 @@ export const NavigationBar = () => {
                                 </Nav.Link>
                                 {isCartOpen && <Cart isOpen={isCartOpen} toggleCart={toggleCart} />}
 
-                                <Nav.Link as={Link} to="/login" className="icon-link">
+                                <Nav.Link as={Link} to="/login" style={{ borderRadius: '0' }} className="icon-link" >
                                     <Button variant="outline-light">Login / SignUp</Button>
                                 </Nav.Link>
                             </>
