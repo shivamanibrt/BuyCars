@@ -39,6 +39,6 @@ export const HeroSection = () => {
                     </Row>
                 </Container>
             </div>
-        </div>
+        </div >
     );
 };
