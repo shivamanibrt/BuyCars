@@ -4,7 +4,6 @@ import { Layout } from './Layout/Layout';
 
 import { About } from './Pages/About/About';
 import { Login } from './Components/SignUp Login/Login';
-import { Signup } from './Components/SignUp Login/Signup';
 import { Home } from './Pages/Home/Home';
 
 import { Dashboard } from './Admin/Dashboard/Dashboard';
@@ -27,15 +26,15 @@ import { Suv } from './Pages/Catagories/SUV/Suv';
 import { SportsCar } from './Pages/Catagories/SportsCar/SportsCar';
 import { Sedan } from './Pages/Catagories/Sedan/Sedan';
 import { NewArrivals } from './Pages/Catagories/NewArrivals/NewArrivals';
+import { Checkout } from './Pages/Cart/Checkout';
 
 
 function App() {
   const dispatch = useDispatch();
-
-  //let firebase to re auth user if they relod the page
   onAuthStateChanged(auth, (user) => {
     user?.uid && dispatch(getUserAction(user.uid))
   })
+
   return (
     <div>
       <Layout>
@@ -44,7 +43,7 @@ function App() {
           <Route path='about' element={<About />} />
           <Route path='login' element={<Login />} />
           {/* <Route path='cart' element={<Cart />} /> */}
-          <Route path='signUp' element={<Signup />} />
+          <Route path='checkout' element={<Checkout />} />
 
 
           <Route path='dashboard' element={<Dashboard />} />

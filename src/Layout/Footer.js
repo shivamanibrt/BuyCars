@@ -40,7 +40,7 @@ export const Footer = () => {
                                 <Link to='/sportsCar' className="text-decoration-none li-footer" onClick={scrollToTop}>Sports Car</Link>
                             </li>
                             <li>
-                                <Link to='/sedan' className="text-decoration-none  li-footer">Sedan</Link>
+                                <Link to='/sedan' className="text-decoration-none  li-footer" onClick={scrollToTop}>Sedan</Link>
                             </li>
                         </ul>
                     </Col>

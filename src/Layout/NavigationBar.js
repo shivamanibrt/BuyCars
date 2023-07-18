@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
-import { BsSearch } from 'react-icons/bs';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { Link, useNavigate } from 'react-router-dom'
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from 'firebase/auth';
@@ -60,9 +58,6 @@ export const NavigationBar = () => {
                     <Nav>
                         {user?.uid ? (
                             <>
-                                <Nav.Link as={Link} to="/search" className="icon-link">
-                                    <BsSearch />
-                                </Nav.Link>
                                 <Nav.Link className="icon-link" onClick={() => setCartOpen(!isCartOpen)}>
                                     <AiOutlineShoppingCart />
                                 </Nav.Link>
@@ -79,12 +74,6 @@ export const NavigationBar = () => {
                             </>
                         ) : (
                             <>
-                                <Nav.Link as={Link} to="/search" className="icon-link">
-                                    <BsSearch />
-                                </Nav.Link>
-                                <Nav.Link as={Link} to="/favourite" className="icon-link">
-                                    <AiOutlineHeart />
-                                </Nav.Link>
                                 <Nav.Link className="icon-link" onClick={() => setCartOpen(!isCartOpen)}>
                                     <AiOutlineShoppingCart />
                                 </Nav.Link>

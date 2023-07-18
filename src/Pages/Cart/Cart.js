@@ -58,7 +58,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
     };
 
     const handelOnCheckout = () => {
-        console.log("Checkout")
+        navigate('./checkout');
     };
 
 
@@ -78,7 +78,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
                     <Col>
                         <div onClick={toggleCart} className="btn-toggle text-secondary">
                             <div style={{ fontSize: '16px' }} >
-                                <AiOutlineClose className="btn-close me-2" />CLOSE
+                                <AiOutlineClose className="btn-close me-2 p-2 border-0" />CLOSE
                             </div>
                         </div>
                     </Col>
