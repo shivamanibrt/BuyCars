@@ -1,14 +1,19 @@
-const express = require('express');
-const app = express();
-const path = require('path');
+// const express = require('express');
+// const app = express();
+// const path = require('path');
 
-app.use(express.static(path.join(__dirname, 'build')));
+// require('dotenv').config();
+// const stripe = require('stripe')(process.env.REACT_APP_STRIPE_SECRET_KEY);
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.json());
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
+
+// const port = process.env.PORT || 3000;
+// app.listen(port, () => {
+//     console.log(`Server is running on port ${port}`);
+// });
