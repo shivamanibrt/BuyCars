@@ -113,7 +113,6 @@ export const Cart = ({ isOpen, toggleCart }) => {
                         ) : (
                             <p>Item in cart is blank</p>
                         )}
-
                         <div className="btn-checkout ">
                             <hr />
                             <Row className='mb-3'>
