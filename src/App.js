@@ -27,6 +27,7 @@ import { Suv } from './Pages/Catagories/SUV/Suv';
 import { SportsCar } from './Pages/Catagories/SportsCar/SportsCar';
 import { Sedan } from './Pages/Catagories/Sedan/Sedan';
 import { NewArrivals } from './Pages/Catagories/NewArrivals/NewArrivals';
+import { Checkout } from './Pages/Cart/Checkout';
 
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path='login' element={<Login />} />
           {/* <Route path='cart' element={<Cart />} /> */}
           <Route path='signUp' element={<Signup />} />
+          <Route path='checkout' element={<Checkout />} />
 
 
           <Route path='dashboard' element={<Dashboard />} />

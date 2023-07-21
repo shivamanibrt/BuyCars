@@ -199,11 +199,15 @@ h2 {
     font-size: 16px;
 }
 
-.btn-checkout,
-.btn-login {
+.btn-checkout-parent,
+.btn-login-parent {
     position: absolute;
     bottom: 2%;
     width: 85%;
+}
+.btn-checkout,
+.btn-login {
+    width: 100%;
 }
 
 .btn-increase:hover,

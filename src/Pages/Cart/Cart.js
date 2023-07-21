@@ -37,7 +37,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
     const cartVariants = {
         hidden: { opacity: 0, x: '100%' },
         visible: { opacity: 1, x: 0, transition: { duration: 0.3, ease: 'easeInOut' } },
-        exit: { opacity: 0, x: '100%', transition: { duration: 0.3, ease: 'easeInOut' } }
+        exit: { opacity: 0, x: '100%', transition: { duration: 0.3, ease: 'easeOut' } }
     };
 
     const calculateTotalPrice = () => {
@@ -58,7 +58,7 @@ export const Cart = ({ isOpen, toggleCart }) => {
     };
 
     const handelOnCheckout = () => {
-        console.log("Checkout")
+        navigate('./checkout');
     };
 
 
@@ -113,30 +113,30 @@ export const Cart = ({ isOpen, toggleCart }) => {
                         ) : (
                             <p>Item in cart is blank</p>
                         )}
-                        <div className="btn-checkout ">
+                        <div className="btn-checkout-parent ">
                             <hr />
                             <Row className='mb-3'>
                                 <Col><strong>SUBTOTAL :</strong> </Col>
                                 <Col style={{ color: '#4e4feb' }}>${totalPrice}</Col>
                             </Row>
                             <hr />
-                            <Row>
-                                <Button style={{ background: '#4e4feb', borderRadius: '0' }} onClick={handelOnCheckout}>
-                                    Checkout
-                                </Button>
-                            </Row>
+                            <Button className="btn-checkout " style={{ background: '#4e4feb', borderRadius: '0' }} onClick={handelOnCheckout}>
+                                Checkout
+                            </Button>
+
                         </div>
                     </Container>
                 ) : (
                     <div className="mt-4 p-2">
                         <h4><strong> No user found</strong></h4>
-                        <p>Please login to view the cart and order cars.</p>
-                        <Row>
-                            <Button onClick={handleOnLogin} className="p-2 mt-5 btn-login" style={{ background: '#4e4feb' }}>
+                        <div className='btn-login-parent'>
+                            <hr />
+                            <p>Please login to view the cart and order cars.</p>
+                            <hr />
+                            <Button onClick={handleOnLogin} className="p-2 btn-login" style={{ background: '#4e4feb', borderRadius: '0' }}>
                                 Login
                             </Button>
-                        </Row>
-
+                        </div>
                     </div>
                 )}
             </div>
