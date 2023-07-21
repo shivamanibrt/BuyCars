@@ -74,7 +74,7 @@ export const Login = () => {
                         <p>Or Sign Up using</p>
                         <Icons />
                         <p>Or Sign Up using</p>
-                        <p className='text-secondary signUp-btn' onClick={signUpFunciton}>SIGN UP</p>
+                        <p className='text-secondary signUp-btn p-2' onClick={signUpFunciton}>SIGN UP</p>
                     </div>
                 </Form>
             </Container>

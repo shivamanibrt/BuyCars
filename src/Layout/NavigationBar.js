@@ -90,8 +90,8 @@ export const NavigationBar = () => {
                                 </Nav.Link>
                                 {isCartOpen && <Cart isOpen={isCartOpen} toggleCart={toggleCart} />}
 
-                                <Nav.Link as={Link} to="/login" style={{ borderRadius: '0' }} className="icon-link" >
-                                    <Button variant="outline-light">Login / SignUp</Button>
+                                <Nav.Link as={Link} to="/login" className="icon-link">
+                                    <Button variant="outline-light" style={{ borderRadius: '0' }}>Login / SignUp</Button>
                                 </Nav.Link>
                             </>
                         )}
